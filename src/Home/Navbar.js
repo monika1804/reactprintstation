@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +16,6 @@ export default function NavbarContent() {
   return (
     <Router>
       <div>
-
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container fluid>
             <Navbar.Brand href="#">Print Station</Navbar.Brand>
