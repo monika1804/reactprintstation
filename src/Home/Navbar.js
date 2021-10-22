@@ -16,6 +16,7 @@ export default function NavbarContent() {
   return (
     <Router>
       <div>
+
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container fluid>
             <Navbar.Brand href="#">Print Station</Navbar.Brand>
