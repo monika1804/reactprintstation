@@ -8,9 +8,12 @@ import {
   Link
 } from "react-router-dom";
 import About from '../AboutUS/About';
+import PdfTools from '../PDFTools/PdfTools';
 import Printing from '../Printing/Printing';
 import Shopping from '../Shopping/Shopping';
 import Home from './Home';
+import Logo from '../images/lockup-white.png';
+import TrackOrder from '../TrackOrder/TrackOrder';
 
 export default function NavbarContent() {
   return (
@@ -18,28 +21,45 @@ export default function NavbarContent() {
       <div>
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#">Print Station</Navbar.Brand>
+            <Navbar.Brand as={Link} to={"/home"}>Logo
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' }}
+                variant="tabs"
+                className=" my-2 my-lg-0 mx-auto"
+                style={{ maxHeight: '200px', padding: '10px' }}
                 navbarScroll
               >
-                <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
-                <Nav.Link as={Link} to={"/printing"}>Printing</Nav.Link>
-                <Nav.Link as={Link} to={"/shopping"}>Shopping</Nav.Link>
-                <Nav.Link as={Link} to={"/pdftool"}>PDF Tools</Nav.Link>
-                <Nav.Link as={Link} to={"/about"}>About Us</Nav.Link>
-                <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/printing"}>Printing</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/shopping"}>Shopping</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/pdftool"}>PDF Tools</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/about"}>About Us</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
+                </Nav.Item>
               </Nav>
-              <Button variant="outline-success">Login</Button>
+              <Button variant="outline-light">Login</Button>
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
       <div>
         <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
           <Route path="/printing">
             <Printing />
           </Route>
@@ -47,13 +67,10 @@ export default function NavbarContent() {
             <Shopping />
           </Route>
           <Route path="/pdftool">
-            <Shopping />
-          </Route>
-          <Route path="/about">
-            <About />
+            <PdfTools />
           </Route>
           <Route path="/track">
-            <Shopping />
+            <TrackOrder />
           </Route>
           <Route path="/">
             <Home />
