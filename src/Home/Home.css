@@ -1,0 +1,12 @@
+.jumbotron {
+  background-image: url('../images/bg2.jpg');
+  object-fit: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  background-size: auto;
+  z-index: -1;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
+}
