@@ -26,16 +26,44 @@ text-align: left;
 .social-content{
   display: flex;
   flex-direction: column;
-  grid-gap: 40px;
+  grid-gap: 20px;
+  align-items: center;
 }
 .icon-content{
   display: flex;
-  grid-gap: 15px;
+  grid-gap: 10px;
   color: #fff;
   cursor: pointer;
+  align-items: flex-end;
+ 
 }
 .terms-content{
   color: #fff;
   display: flex;
   grid-gap: 15px;
+}
+.service-content{
+  font-family: "Gill Sans", sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40px;
+}
+.middle-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.community{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  padding-bottom: 30px;
+}
+.social-icon{
+  color: #fff;
+}
+.contact{
+  cursor: pointer;
 }

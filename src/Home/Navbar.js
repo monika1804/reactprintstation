@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
@@ -16,8 +16,14 @@ import logo from '../images/logo.png';
 // import Logo from '../images/lockup-white.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
+import Login from '../Login/Login';
 
 export default function NavbarContent() {
+  const [open, setOpen] = useState(false);
+
+  const handleLoginClick = () => {
+    setOpen(true)
+  }
   return (
     <Router>
       <div>
@@ -53,7 +59,15 @@ export default function NavbarContent() {
                   <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
                 </Nav.Item>
               </Nav>
-              <Button variant="outline-light">Login</Button>
+              <div>
+                <Button variant="outline-light" onClick={handleLoginClick}>Login</Button>
+                {open ?
+                  <Login
+                    setOpen={setOpen}
+                    open={open}
+                  />
+                  : " "}
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
