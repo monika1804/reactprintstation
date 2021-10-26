@@ -39,7 +39,6 @@ function TopContent() {
             <img src={logo} alt="logo" width='300px' height="300px" /><br /><br />
             <h1 className="header"><strong className="brand-name">The Print Station</strong></h1>
             <h4 className="offer">Make Students Life Easy</h4>
-            <button type="button">Login</button>
           </div>
         </div>
       </div>
