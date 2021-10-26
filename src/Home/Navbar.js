@@ -12,16 +12,19 @@ import PdfTools from '../PDFTools/PdfTools';
 import Printing from '../Printing/Printing';
 import Shopping from '../Shopping/Shopping';
 import Home from './Home';
-import Logo from '../images/lockup-white.png';
+import logo from '../images/logo.png';
+// import Logo from '../images/lockup-white.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
+import './Home.css';
 
 export default function NavbarContent() {
   return (
     <Router>
       <div>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar expand="lg" variant="dark" className="navbar" >
           <Container fluid>
-            <Navbar.Brand as={Link} to={"/home"}>Logo
+            <Navbar.Brand as={Link} to={"/home"} className="logo">
+              <img src={logo} alt="logo" width='80px' height="70px" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
