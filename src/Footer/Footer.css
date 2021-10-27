@@ -1,0 +1,69 @@
+.footer{
+background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* margin-top: 10px; */
+padding: 10px;
+text-align: left;
+
+
+}
+.brand{
+  display: flex;
+  align-items: center;
+}
+.title{
+  color: #ffffff;
+   font-family: 'sans-serif';
+   margin-left: 10px;
+   font-weight: bold;
+}
+.text{
+   font-family: "Gill Sans", sans-serif;
+    color: #fff;
+    font-weight: bold;
+}
+.social-content{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+  align-items: center;
+}
+.icon-content{
+  display: flex;
+  grid-gap: 10px;
+  color: #fff;
+  cursor: pointer;
+  align-items: flex-end;
+ 
+}
+.terms-content{
+  color: #fff;
+  display: flex;
+  grid-gap: 15px;
+}
+.service-content{
+  font-family: "Gill Sans", sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40px;
+}
+.middle-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.community{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  padding-bottom: 30px;
+}
+.social-icon{
+  color: #fff;
+}
+.contact{
+  cursor: pointer;
+}

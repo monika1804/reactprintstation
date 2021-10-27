@@ -1,41 +1,28 @@
-import * as React from 'react';
-import { makeStyles } from '@mui/styles';
-// import { CssBaseline } from '@mui/material';
-// import { Background } from '../images/background';
-import './Home.css';
-import { Typography, Grid } from '@mui/material';
-import Logo from '../images/lockup-white.png';
 
-const useStyles = makeStyles((theme) => ({
-  Content: {
-    margin: '200px',
+import React from 'react'
+import FamousWork from './FamousWork';
+import TopContent from './TopContent';
+import VideoContent from './VideoContent';
+import Footer from '../Footer/Footer';
 
-  },
-  header: {
-    fontSize: '75px',
-    color: 'white',
-    fontFamily: 'sans-serif',
-  },
-  tagline: {
-    fontSize: '30px',
-    color: 'white',
-  }
-}));
-
-export default function MyComponent() {
-  const classes = useStyles();
+export default function Home() {
   return (
-    <div class="jumbotron jumbotron-full-bg">
-      <Grid xs={12} classes={classes.Content}>
-        <Grid xs={6}>
-          <h1 className={classes.header}><strong>The Print Station</strong></h1>
-          <Typography variant="h6" className={classes.tagline}>Make Students Life Easy</Typography>
-        </Grid>
-        <Grid xs={6}>
-          {/* <img src={Logo} alt="logo" style/> */}
-        </Grid>
-      </Grid>
-    </div>
+    <>
+      <div className="home-content">
+        <div xs={12} >
+          <TopContent />
+        </div>
+      </div><br />
+      <div xs={12} className="work-content">
+        <FamousWork />
+      </div>
+      <div xs={12} className="video-content">
+        <VideoContent />
+      </div>
+      <div xs={12} className="footer">
+        <Footer />
+      </div>
 
-  );
+    </>
+  )
 }
