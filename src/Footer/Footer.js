@@ -28,7 +28,7 @@ export default function Footer() {
                 <LinkedInIcon size="2x" onClick={() => openInNewTab('https://www.linkedin.com/in/aman-chauhan-865233207')} />
                 <InstagramIcon onClick={() => openInNewTab('https://instagram.com/itschauhan_aman')} />
                 <TwitterIcon onClick={() => openInNewTab('https://twitter.com/its_chauhanAMAN?s=09')} />
-                <EmailIcon onClick={() => openInNewTab('https://www.gmail.com')} />
+                <EmailIcon onClick={() => openInNewTab('mailto:info.theprintstation@gmail.com')} />
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function Footer() {
               <h4 className="text">OUR CONTACT</h4><br />
               <div className="service-content">
                 <h5 className="contact">+ 91 876543214</h5>
-                <h5 onClick={() => openInNewTab('https://www.gmail.com')} className="contact">printstation@gmail.com</h5>
+                <h5 onClick={() => openInNewTab('mailto:info.theprintstation@gmail.com')} className="contact">info.theprinstation@gmail.com</h5>
               </div>
             </div>
           </div>
