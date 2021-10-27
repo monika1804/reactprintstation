@@ -49,6 +49,7 @@ text-align: left;
   flex-direction: column;
   justify-content: center;
   margin-left: 40px;
+  margin-top: 20px;
 }
 .middle-content{
   display: flex;

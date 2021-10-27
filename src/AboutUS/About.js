@@ -5,11 +5,12 @@ import './About.css';
 import ChooseUs from './ChooseUs';
 import OurCompany from './OurCompany';
 import FAQ from './FAQ';
+import Footer from '../Footer/Footer';
 
 export default function About() {
   return (
     <div>
-      <Card className="bg-dark text-white">
+      <Card className="text-white">
         <Card.Img src={Image} alt="Card image" className="about-bg" />
         <Card.ImgOverlay className="title-content">
           <Card.Title className="about-title">ABOUT US</Card.Title>
@@ -24,6 +25,10 @@ export default function About() {
       <div className="faq-content">
         <FAQ />
       </div>
+      <div xs={12} className="footer">
+        <Footer />
+      </div>
+
     </div>
   )
 }

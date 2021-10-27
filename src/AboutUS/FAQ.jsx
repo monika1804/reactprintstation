@@ -25,7 +25,7 @@ export default function SimpleAccordion() {
           </div>
           <div className="col-md-4">
             <div className="choose-title">
-              <h2>Frequently Ask Question</h2>
+              <h1>Frequently Ask Question</h1>
             </div>
             {FaqData.map((e) => {
               return (
@@ -35,9 +35,9 @@ export default function SimpleAccordion() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>{e.question}</Typography>
+                    <Typography style={{ fontWeight: 'bold', }}>{e.question}</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails style={{ textAlign: 'left', }}>
                     <Typography>
                       {e.answer}
                     </Typography>
@@ -53,7 +53,6 @@ export default function SimpleAccordion() {
               alt="grey"
               height="450px"
               width="500px"
-              className="target-image"
             />
           </div>
         </div>
