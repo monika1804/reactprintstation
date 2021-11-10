@@ -1,0 +1,37 @@
+
+.print-bg{
+  height: 700px;
+}
+.uploader-content{
+  margin:60px;
+  padding: 60px;
+ background-color: #6971c7;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.doc-image{
+  margin-bottom: 20px;
+}
+.file-selector{
+   margin:60px;
+     padding: 60px;
+     /* background-color: burlywood; */
+}
+.checkbox-pannel{
+  display: flex;
+ 
+}
+.list-card{
+ background-color: chocolate;
+}
+.customize-card{
+  margin: 25px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 20px;
+}
+.button-card{
+display: flex;
+justify-content: right;
+margin: 10px;
+}
