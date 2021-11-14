@@ -35,3 +35,8 @@ display: flex;
 justify-content: right;
 margin: 10px;
 }
+.customise-content{
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+
+}

@@ -22,41 +22,32 @@ export default function FamousWork() {
             <h1 className="famous-title">FAMOUS WORK</h1>
           </div>
           <CardGroup>
-            <Card className="famous-card" as={Link} to={"/shopping"}>
+            <Card className="famous-card">
               <Card.Img variant="top" src={Image2} />
               <Card.Body>
-                <Card.Title className="work-title">SHOPPING</Card.Title>
-              </Card.Body>
-            </Card>
-            <Card className="famous-card" as={Link} to={"/printing"}>
-              <Card.Img variant="top" src={Image1} />
-              <Card.Body>
                 <Card.Title className="work-title">
-                  PRINTING
+                  <a href="/shopping" class="home-link">SHOPPING</a>
                 </Card.Title>
               </Card.Body>
             </Card>
-            <Card className="famous-card" as={Link} to={"/pdftool"}>
+            <Card className="famous-card">
+              <Card.Img variant="top" src={Image1} />
+              <Card.Body>
+                <Card.Title className="work-title">
+                  <a href="/printing" class="home-link">PRINTING</a>
+                </Card.Title>
+              </Card.Body>
+            </Card>
+            <Card className="famous-card">
               <Card.Img variant="top" src={Image3} />
               <Card.Body>
-                <Card.Title className="work-title">PDF CONVERTER</Card.Title>
+                <Card.Title className="work-title">
+                  <a href="/pdftool" class="home-link">PDF CONVERTER</a>
+                </Card.Title>
               </Card.Body>
             </Card>
           </CardGroup>
         </div>
-      </div>
-      <div>
-        <Switch>
-          <Route path="/printing">
-            <Printing />
-          </Route>
-          <Route path="/shopping">
-            <Shopping />
-          </Route>
-          <Route path="/pdftool">
-            <PdfTools />
-          </Route>
-        </Switch>
       </div>
     </Router>
   )

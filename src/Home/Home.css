@@ -85,3 +85,7 @@ button:hover{
   font-size: 30px;
   font-weight: bold;
 }
+.home-link {
+  text-decoration: none;
+  color: black;
+}

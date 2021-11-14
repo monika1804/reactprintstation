@@ -26,17 +26,6 @@ export default function Uploader() {
         >
           Click to Upload
       </button>
-        {files ? (
-          files.map((file) => (
-            <div>
-              <img src={file.source} alt='preview' width="90px" height="80px" />
-              <span> Name: {file.name} </span>
-              <span> Size: {file.size} </span>
-            </div>
-          ))
-        ) : (
-            <span>No file selected</span>
-          )}
       </div>
     </div>
   )

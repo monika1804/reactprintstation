@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
+import Footer from '../Footer/Footer';
 import Image from '../images/printing-man.jpg';
 import Customise from './Customise';
 import SelectorTools from './SelectorTools';
@@ -24,8 +25,9 @@ export default function Printing() {
         {/* <SelectorTools /> */}
         <Customise />
       </div>
-
-
+      <div xs={12} className="footer">
+        <Footer />
+      </div>
     </div>
   )
 }
