@@ -40,3 +40,7 @@ margin: 10px;
   grid-template-columns: repeat(3, 1fr); */
 
 }
+
+#cs_active_true{
+  background-color: yellow;
+}

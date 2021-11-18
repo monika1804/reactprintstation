@@ -1,76 +1,49 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react'
-import { Card, CardGroup } from 'react-bootstrap';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import './Printing.css';
+export default function Customise({numPage, fileName}) {
+  const [isActive, setIsActive] = useState({
+    "colored": false,
+    "single": false,
+  });
+  const pricing = {
+    "colored": 5,
+    "bw": 3,
+    "single": 4,
+    "double": 5
+  }
 
-export default function Customise(index) {
-  const [active, setActive] = useState();
+  const calculatePrice = (numPage)=>{
+    let clr, side
+    clr = isActive["colored"]?"colored":"bw"
+    side = isActive["single"]?"single":"double"
+    return (pricing[clr] * pricing[side] * numPage)
+  }
+
+  let index = 1
+  console.log(isActive)
   return (
+    fileName == ""?<div></div>:
     <div>
       <div className="customise-content">
         <div style={{ textAlign: 'left' }}>
-          <h4>Choose the option given below:</h4>
+          <h4>Choose the option given below for {fileName}:</h4>
         </div>
-        <CardGroup>
-          <Card className="customize-card"
-            style={active === index ? { border: '4px solid #95b0f5' } : {}}
-            onClick={() => setActive(index)}>
-            <Card.Body>
-              <Card.Title>Double Side Print</Card.Title>
-              <Card.Text>1 Page : 0.75/Page</Card.Text>
-              <Card.Text>Total Page : 10</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Total Amount: 200</small>
-            </Card.Footer>
-          </Card>
-          <Card className="customize-card">
-            <Card.Body>
-              <Card.Title>Single Side Print</Card.Title>
-              <Card.Text>1 Page : 0.75/Page</Card.Text>
-              <Card.Text>Total Page : 10</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Total Amount: 200</small>
-            </Card.Footer>
-          </Card>
-          <Card className="customize-card">
-            <Card.Body>
-              <Card.Title>Black and White Print</Card.Title>
-              <Card.Text>1 Page : 0.75/Page</Card.Text>
-              <Card.Text>Total Page : 10</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Total Amount: 200</small>
-            </Card.Footer>
-          </Card>
-        </CardGroup>
-      </div>
-      <div className="customise-content">
-        <CardGroup>
-          <Card className="customize-card">
-            <Card.Body>
-              <Card.Title>Color Print</Card.Title>
-              <Card.Text>1 Page : 0.75/Page</Card.Text>
-              <Card.Text>Total Page : 10</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Total Amount: 200</small>
-            </Card.Footer>
-          </Card>
-          <Card className="customize-card">
-            <Card.Body>
-              <Card.Title>Spiral Bind or Not</Card.Title>
-              <Card.Text>1 Page : 0.75/Page</Card.Text>
-              <Card.Text>Total Page : 10</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Total Amount: 200</small>
-            </Card.Footer>
-          </Card>
-        </CardGroup>
-        <div className="button-card">
-          <Button color="primary" variant="contained" size="large">Next</Button>
+        <ButtonGroup class = "color-select">
+          <Button id = {"cs_active_"+!isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})} > B&W Print </Button>
+          <Button id = {"cs_active_"+isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})}> Coloured Print </Button>
+        </ButtonGroup>
+        <br />
+        <ButtonGroup class = "side-select">
+          <Button id = {"cs_active_"+!isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Single side Print </Button>
+          <Button id = {"cs_active_"+isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Double side Print </Button>
+        </ButtonGroup>
+        <div>
+          total page : {numPage}
+        </div>
+        <div>
+          total price : {calculatePrice(numPage)}
         </div>
       </div>
     </div>
