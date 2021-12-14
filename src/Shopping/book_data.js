@@ -1,0 +1,89 @@
+
+
+const bookstore =[
+ 
+    {id:1,
+    image:"./image/book2.jpg",
+    image2:"./image/book1.jpg",
+    mrp:399,
+    mrp2:399,
+    price:199, 
+    price2:199, 
+}/*,
+{   id:2,
+    image:"./image/book3.jpg",
+    image2:"./image/book4.jpg",
+    mrp:299,
+    mrp2:299,
+    price:99,
+    price2:99,  
+},
+{
+    id:3,
+    image:"./image/diary74.png",
+    image2:"./image/diary125.png",
+    mrp:299,
+    price:99, 
+},
+{
+    id:4,
+    image:"./image/diary126.png",
+    image2:"./image/diary127.png",
+    mrp:299,
+    price:99, 
+},
+{
+    id:5,
+    image:"./image/diary128.png",
+    image2:"./image/diary129.png",
+    mrp:299,
+    price:99, 
+},
+{
+    id:6,
+    image:"./image/diary205.png",
+    image2:"./image/diary216.png",
+    mrp:299,
+    price:99, 
+},
+{
+    id:7,
+    image:"./image/diary229.png",
+    image2:"./image/diary4320.png",
+    mrp:299,
+    price:99, 
+},
+{
+    id:8,
+    image:"./image/diary5005.png",
+    image2:"./image/diary000.png",
+    mrp:299,
+    price:99, 
+}
+,
+{
+    id:9,
+    image:"./image/diary106.png",
+    image2:"./image/diary109.png",
+    mrp:299,
+    price:99, 
+}
+,
+{
+    id:10,
+    image:"./image/diary119.png",
+    image2:"./image/diaryWELL.png",
+    mrp:299,
+    price:99, 
+}
+,
+{
+    id:11,
+    image:"./image/diary9009.png",
+    image2:"./image/diary9012.png",
+    mrp:299,
+    price:99, 
+}*/
+
+]
+export default bookstore;
