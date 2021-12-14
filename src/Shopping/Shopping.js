@@ -1,9 +1,16 @@
 import React from 'react'
 
-export default function Shopping() {
-  return (
-    <div>
-      <h1>hi I m Shopping</h1>
-    </div>
-  )
-}
+import Shopping from '../Shopping/menucard';
+
+
+
+
+
+const Bookdata = () => {
+
+  return(
+  <h1></h1>
+  );
+};
+
+export default Bookdata;

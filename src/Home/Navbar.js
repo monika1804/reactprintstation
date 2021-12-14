@@ -10,7 +10,21 @@ import {
 import About from '../AboutUS/About';
 import PdfTools from '../PDFTools/PdfTools';
 import Printing from '../Printing/Printing';
-import Shopping from '../Shopping/Shopping';
+/*shooping Routes*/
+import Shopping from '../Shopping/menucard';
+import Diary from '../Shopping/diary-planner';
+import Diarys from '../Shopping/diary';
+import Planner from '../Shopping/planner';
+import FramesandPosters from'../Shopping/framesandposters';
+import CustomizedFrames from'../Shopping/customizedframes';
+import MotivationalPosters  from'../Shopping/motivationalposters';
+import MotivationalQuoteFrameWithPosters  from '../Shopping/motivationalquoteframewithposters';
+import Notebooks from '../Shopping/notebooks';
+import CustomizeByCover from '../Shopping/customizebycover';
+import CustomizeByName from '../Shopping/customizebyname';
+import TPSMERCHANDISE from '../Shopping/tpsmerchandise';
+import TPSMERCHANDISE2 from '../Shopping/tpsmerchandise2';
+/*shopping Routes*/
 import Home from './Home';
 import logo from '../images/logo.png';
 // import Logo from '../images/lockup-white.png';
@@ -83,6 +97,48 @@ export default function NavbarContent() {
           <Route path="/shopping">
             <Shopping />
           </Route>
+          <Route path="/diary">
+            <Diary />
+          </Route>
+          <Route path="/diarys">
+            <Diarys />
+          </Route>
+          <Route path="/planners">
+            <Planner />
+          </Route>
+          <Route path="/framesandposters">
+            <FramesandPosters />
+          </Route>
+          <Route path="/customizedframes">
+            <CustomizedFrames />
+          </Route>
+
+          <Route path="/motivationalposters">
+            <MotivationalPosters />
+          </Route>
+
+          <Route path="/motivationalquoteframewithposters">
+            <MotivationalQuoteFrameWithPosters />
+          </Route>
+          <Route path="/notebooks">
+            <Notebooks />
+          </Route>
+          <Route path="/customizebycover">
+            <CustomizeByCover />
+          </Route>
+
+          <Route path="/customizebyname">
+            <CustomizeByName />
+          </Route>
+
+          <Route path="/tpsmerchandise">
+            <TPSMERCHANDISE />
+          </Route>
+        
+          <Route path="/tpsmerchandise2">
+            <TPSMERCHANDISE2 />
+          </Route>
+
           <Route path="/pdftool">
             <PdfTools />
           </Route>
