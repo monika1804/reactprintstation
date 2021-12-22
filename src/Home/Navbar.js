@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
+import Box from '@mui/material/Box';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,12 +17,27 @@ import logo from '../images/logo.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
 import Login from '../Login/Login';
+import { useAuth } from '../context/context';
 
 export default function NavbarContent() {
+  const { currentUser, firebaseLogout } = useAuth()
   const [open, setOpen] = useState(false);
-
-  const handleLoginClick = () => {
-    setOpen(true)
+  const [logOut, setLogOut] = useState(false)
+  useEffect(()=>{
+    if(currentUser){
+      setLogOut(true)
+      setOpen(false)
+    }else{
+      setLogOut(false)
+    }
+  },[currentUser])
+  const changeModalState = () => {
+    if(logOut){
+      firebaseLogout()
+    }
+    else {
+      setOpen(!open)
+    }
   }
   return (
     <Router>
@@ -59,13 +75,12 @@ export default function NavbarContent() {
                 </Nav.Item>
               </Nav>
               <div>
-                <Button variant="outline-light" onClick={handleLoginClick}>Login</Button>
-                {open ?
-                  <Login
-                    setOpen={setOpen}
-                    open={open}
-                  />
-                  : " "}
+                <Button variant="outline-light" onClick={e => changeModalState()}>{logOut? "Logout": "Login"}</Button>
+                <Login
+                  changeModalState={changeModalState}
+                  open={open}
+                />
+                <Box sx = {{color:"red"}}>{currentUser}</Box>
               </div>
             </Navbar.Collapse>
           </Container>
