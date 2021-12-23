@@ -1,43 +1,31 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
-import { Card } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Box } from '@mui/material';
+
+import UploadedCards from './UploadedCards';
 import Footer from '../Footer/Footer';
-import Image from '../images/printing-man.jpg';
 import Customise from './Customise';
-import SelectorTools from './SelectorTools';
 import Uploader from './Uploader';
 import { getNumPages } from '../utils/utils';
 
 
-export default function Printing() {
-  const [numPage, setNumPage] = useState(1)
-  const [fileName, setFileName] = useState("")
-  const [file, setFile] = useState(undefined)
 
-  useEffect(async()=>{
-    if (file !== undefined){
-    let arrayBuff, int8Arr, numPageIn
-    setFileName(file.target.files[0].name)
-    arrayBuff = await file.target.files[0].arrayBuffer()
-    int8Arr = new Int8Array(arrayBuff)
-    numPageIn = await getNumPages(int8Arr)
-    setNumPage(numPageIn)}
-  }, [file])
+export default function Printing() {
+  const [file, setFile] = useState({fileName:"", numPage: 1})
+  const [update, setUpdate] = useState(false)
+
+
 
   return (
     <div>
-      <Card className="text-white">
-        <Card.Img src={Image} alt="Card image" className="print-bg" />
-        <Card.ImgOverlay className="title-content">
-          <Card.Title className="about-title">PRINTING</Card.Title>
-        </Card.ImgOverlay>
-      </Card>
+      <Box sx = {{backgroundColor:"#6c757d", display: "flex", flexDirection: "column"}}>
+          <h1>your upload</h1>
+          <UploadedCards update = {update} setFile = {setFile} />
+      </Box>
       <div className="uploader-container">
-        <Uploader setFile = {setFile}/>
+        <Uploader update = {update} setUpdate = {setUpdate}/>
       </div>
       <div className="file-selector">
-        {/* <SelectorTools /> */}
-        <Customise fileName = {fileName} numPage = {numPage}/>
+        <Customise fileName = {file.fileName} numPage = {file.numPage}/>
       </div>
       <div xs={12} className="footer">
         <Footer />
