@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react'
 import ButtonGroup from '@mui/material/ButtonGroup';
-import './Printing.css';
+import { Box } from '@mui/system';
 export default function Customise({numPage, fileName}) {
   const [isActive, setIsActive] = useState({
     "colored": false,
@@ -21,31 +21,33 @@ export default function Customise({numPage, fileName}) {
     return (pricing[clr] * pricing[side] * numPage)
   }
 
-  let index = 1
-  console.log(isActive)
+  const handleFormClick = () => {
+
+  }
   return (
     fileName == ""?<div></div>:
     <div>
-      <div className="customise-content">
-        <div style={{ textAlign: 'left' }}>
+        <div>
           <h4>Choose the option given below for {fileName}:</h4>
         </div>
-        <ButtonGroup class = "color-select">
-          <Button id = {"cs_active_"+!isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})} > B&W Print </Button>
-          <Button id = {"cs_active_"+isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})}> Coloured Print </Button>
-        </ButtonGroup>
-        <br />
-        <ButtonGroup class = "side-select">
-          <Button id = {"cs_active_"+!isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Single side Print </Button>
-          <Button id = {"cs_active_"+isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Double side Print </Button>
-        </ButtonGroup>
+        <Box sx = {{display: "flex", flexDirection: "column", alignItems: "center"}}>
+          <ButtonGroup class = "color-select">
+            <Button id = {"cs_active_"+!isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})} > B&W Print </Button>
+            <Button id = {"cs_active_"+isActive["colored"]} onClick = {e => setIsActive({...isActive, "colored": !isActive["colored"]})}> Coloured Print </Button>
+          </ButtonGroup>
+          <br />
+          <ButtonGroup class = "side-select">
+            <Button id = {"cs_active_"+!isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Single side Print </Button>
+            <Button id = {"cs_active_"+isActive["single"]} onClick = {e => setIsActive({...isActive, "single": !isActive["single"]})}> Double side Print </Button>
+          </ButtonGroup>
         <div>
           total page : {numPage}
         </div>
         <div>
           total price : {calculatePrice(numPage)}
         </div>
-      </div>
+        <Button variant = "contained" onClick = {e => handleFormClick(e)}>Purchase</Button>
+        </Box>
     </div>
   )
 }

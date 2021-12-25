@@ -74,6 +74,7 @@ export default function Uploader({update, setUpdate}) {
 
   return (
     <Box>
+      <h3>Click to upload pdf/image/doc/pdf</h3>
       <Box sx = {{display: "flex", flexDirection: "row", justifyContent: "center", mt: "10px", mb: "10px"}}>
         <input 
           style= {{display: 'none'}}
@@ -84,7 +85,7 @@ export default function Uploader({update, setUpdate}) {
           }}
           ref = {inputFileRef}
         />
-        <Button disabled = {fileUploading} sx = {{width: "200px"}} variant = "contained" onClick = { e => inputFileRef.current.click()}>
+        <Button disabled = {fileUploading} sx = {{width: "150px"}} variant = "contained" onClick = { e => inputFileRef.current.click()}>
           Upload
         </Button>
       </Box>

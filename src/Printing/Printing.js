@@ -21,12 +21,15 @@ export default function Printing() {
           <h1>your upload</h1>
           <UploadedCards update = {update} setFile = {setFile} />
       </Box>
-      <div className="uploader-container">
-        <Uploader update = {update} setUpdate = {setUpdate}/>
-      </div>
-      <div className="file-selector">
-        <Customise fileName = {file.fileName} numPage = {file.numPage}/>
-      </div>
+      <Box sx = {{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
+        <div className="uploader-container">
+          <Uploader update = {update} setUpdate = {setUpdate}/>
+        </div>
+        <Box sx = {{borderLeft: "2px solid black", height: "400px"}}/>
+        <div>
+          <Customise fileName = {file.fileName} numPage = {file.numPage}/>
+        </div>
+      </Box>
       <div xs={12} className="footer">
         <Footer />
       </div>
