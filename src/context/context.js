@@ -16,8 +16,8 @@ export default function AuthProvider({children}) {
   useEffect(() => {
     const unregisterAuthObserver = values.firebaseAuth.onAuthStateChanged(async user => {
       if (user != null){
-        setCurrentUser(user.uid)
-        const userData = await getDataFromDb(user.uid)
+        setCurrentUser(user.displayName)
+        const userData = await getDataFromDb()
         setUserData(userData.val())
       }else{
         setCurrentUser(null)
@@ -38,11 +38,16 @@ export default function AuthProvider({children}) {
     uploadToFirebase: uploadToFirebase,
     addDataToDb: addDataToDb,
     getDataFromDb: getDataFromDb,
-    setUserName: setUserName
+    setUserName: setUserName, 
+    getDbRef: getDbRef
   }
   
   function getRef(path){
     return ref(firebaseStorage, path)
+  }
+
+  function getDbRef(path){
+    return dbRef(firebaseDatabase, path)
   }
 
   function firebaseLogin(email, password){
@@ -53,8 +58,10 @@ export default function AuthProvider({children}) {
     return createUserWithEmailAndPassword(values.firebaseAuth,email, password)
   }
 
-  function setUserName(username){
-    return updateProfile(firebaseAuth.currentUser, {displayName: username})
+  async function setUserName(username){
+  updateProfile(firebaseAuth.currentUser, {displayName: username}).then((resp) => {
+      setCurrentUser(firebaseAuth.currentUser.displayName)
+    })
   }
 
   function firebaseLogout(){
@@ -65,13 +72,12 @@ export default function AuthProvider({children}) {
     return uploadBytesResumable(ref, file, metadata) 
   }
 
-  function getDataFromDb(userId){
-    return get(dbRef(firebaseDatabase, `users/${userId}`))
-    
+  function getDataFromDb(path){
+    return get(getDbRef(`users/${values.firebaseAuth.currentUser.uid}/${path}`))
   }
 
-  function addDataToDb(userId, data){
-    return set(dbRef(firebaseDatabase, `users/${userId}`), data)
+  function addDataToDb(path, data){
+    return set(getDbRef(`users/${values.firebaseAuth.currentUser.uid}/${path}`), data)
   }
 
   return <AuthContext.Provider value = {values}>{children}</AuthContext.Provider>

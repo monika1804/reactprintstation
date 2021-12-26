@@ -81,7 +81,7 @@ export default function NavbarContent() {
                   changeModalState={changeModalState}
                   open={open}
                 />
-                <Box sx = {{color:"red"}}>welcome, {firebaseAuth.currentUser? firebaseAuth.currentUser.displayName: ""}</Box>
+                <Box sx = {{color:"red"}}>welcome, {currentUser}</Box>
               </div>
             </Navbar.Collapse>
           </Container>

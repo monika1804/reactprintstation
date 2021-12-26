@@ -2,6 +2,7 @@ import * as pdfjs from 'pdfjs-dist/build/pdf';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 import { listAll, getMetadata } from "@firebase/storage"
 import {supportedFileTypes} from "./constants" 
+import { push } from "@firebase/database"
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -29,4 +30,8 @@ export async function getMetadataFromRef(item){
 
 export function isFileTypeSupported(file){
   return supportedFileTypes.includes(file.type)
+}
+
+export function generateNewKey(path){
+  return push(path).key
 }
