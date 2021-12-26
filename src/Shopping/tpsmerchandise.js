@@ -1,33 +1,50 @@
-import React from 'react'
-import bookstore from './book_data';
-import './shopping.css';
-import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
 
-export default function TPSmerchandise() {
-    return (
-     <section class="container-fluid">
-             
-    <nav className="sidenav">
-       
-    <ul className="side-nav">
-    
-    <a href="/diary"><li> DIARY'S AND PLANNERS </li></a>
-    <a href="/framesandposters"> <li>FRAMES AND POSTERS</li></a>
-    <a href="/notebooks"><li> NOTEBOOKS</li></a>
-    <a href="/tpsmerchandise"><li>TPS MERCHANDISE(COMING SOON)</li></a>
-    </ul>
-    </nav>
-    <div id="section4">
-            <div className="tpsmerchandise">  
-            <a href="/tpsmerChandise2"><img src="image/Tee2.jpg" class="img-circle" /></a>
-            <p>TPS Merchandise (Coming Soon)</p>
-            </div>
-            <br></br>
-            
-            </div>
-    </section>
-    )
-  }
+import React, {useState} from 'react'
+import './shopping.css';
+import {tpsData} from "./tpsmerchandise2"
+import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
+import { Carousel } from 'react-bootstrap';
   
 
+function Planners(){
+    let [carousel, setCarousel] = useState(tpsData[0])
+    const handleImageClick=(e, key)=> {
+        setCarousel(tpsData[key])
+    }
+    
+    
+  
 
+    return( 
+        
+<div class="container-fluid">
+<div class="imgcarousel">
+
+     
+<Carousel variant="dark">
+{carousel.carouselImages.map((image, key)=>{
+    return(
+        <Carousel.Item>
+        <img src={image} class="book-image4" />
+        </Carousel.Item>
+    )
+})}
+</Carousel>    
+
+<div class="imgonclick">
+    {tpsData.map((images, key) => {
+        return(<img key = {key} src= {images.mainImage} class="book-image3" onClick = {e => handleImageClick(e, key)}/>)
+    })}
+ </div>  
+
+<h5 style={{'color':'black'}}>365 Days Planner with Health Checklist</h5>
+<h6 style={{'color':'black'}}>Rs.199.00 <span style={{'color':'#ababab'}}>Rs.{carousel.price}</span></h6>
+<h6 style={{'color':'green'}}>Save Rs.200.00</h6><br/>
+<div style={{'border-bottom':'1px solid grey','width':'50%','margin':'auto'}}></div><br/>
+<h4 style={{'color':'black'}}>Description</h4>
+<span>{carousel.description}</span>
+</div>
+        </div>
+    )
+}
+export default Planners;

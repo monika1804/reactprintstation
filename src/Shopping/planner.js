@@ -1,95 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './shopping.css';
+import {plannerData} from "./planner_data"
 import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
-
+import { Carousel } from 'react-bootstrap';
   
+
 function Planners(){
-    const data=[
-        {id:1,
-            image:"./image/book2.jpg",
-            image2:"./image/book1.jpg",
-            image3:"./image/book3.jpg",
-            image4:"./image/book4.jpg",
-            name:"365 Days Planner",
-            name2:"Weekly Planner",
-            description:"365 Days/Yearly Planner, 365 Pages, Size A5, A planner For Every Day of the year,Spiral Bounds",
-            description2:"Weekly Planner,104 weeks Organizer, Size A5, A planner For Every Week For 2 years,Spiral Bounds",
-            mrp:399,
-            mrp2:399,
-            mrp3:299,
-            mrp4:299,
-            price:199, 
-            price2:199, 
-            price3:99, 
-            price4:99,
-        }
-    ]
-    return(
-        
-        <div class="container-fluid">
-
-       
-            {data.map((user)=>(
-                <section class="container-fluid">
- <div className ="card-container">
-    <div class="row"> 
-    <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div>
-    <a href=""><img src={user.image} alt="no" class="book-image" /></a>
-    </div>
-    <br/>
-    <p><b>{user.name}</b></p>
-    <p>{user.description}</p><br/>
-    <span><b>Mrp: </b><del class="mrp">{user.mrp}</del></span>
-    <p class="book-price"><b>Rs.</b> {user.price} </p>
-    <button type="button" class="btn btn-outline">Add To Cart</button>
-    </div>
-
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div>
-    <a href=""><img src={user.image2} alt="no" class="book-image" /></a>
-    </div>
-    <br/>
-    <p><b>{user.name}</b></p>
-    <p>{user.description}</p><br/>
-    <span><b>Mrp: </b><del class="mrp">{user.mrp2}</del></span>
-    <p class="book-price"><b>Rs.</b> {user.price2}</p>
-    <button type="button" class="btn btn-outline">Add To Cart</button>
-    </div>  
+    let [carousel, setCarousel] = useState(plannerData[0])
+    const handleImageClick=(e, key)=> {
+        setCarousel(plannerData[key])
+    }
     
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div>
-    <a href=""><img src={user.image3} alt="no" class="book-image" /></a>
-    </div>
-    <br/>
-    <p><b>{user.name2}</b></p>
-    <p>{user.description2}</p><br/>
-    <span><b>Mrp: </b><del class="mrp">{user.mrp3}</del></span>
-    <p class="book-price"><b>Rs.</b> {user.price3} </p>
-    <button type="button" class="btn btn-outline">Add To Cart</button>
-    </div>  
+    
+  
 
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div>
-    <a href=""><img src={user.image4} alt="no" class="book-image" /></a>
-    </div>
-    <br/>
-    <p><b>{user.name2}</b></p>
-    <p>{user.description2}</p><br/>
-    <span><b>Mrp: </b><del class="mrp">{user.mrp4}</del></span>
-    <p class="book-price"><b>Rs.</b> {user.price4} </p>
-    <button type="button" class="btn btn-outline">Add To Cart</button>
-    </div>  
+    return( 
+        
+<div class="container-fluid">
+<div class="imgcarousel">
 
+     
+<Carousel variant="dark">
+{carousel.carouselImages.map((image, key)=>{
+    return(
+        <Carousel.Item>
+        <img src={image} class="book-image4" />
+        </Carousel.Item>
+    )
+})}
+</Carousel>    
 
+<div class="imgonclick">
+    {plannerData.map((images, key) => {
+        return(<img key = {key} src= {images.mainImage} class="book-image3" onClick = {e => handleImageClick(e, key)}/>)
+    })}
+ </div>  
 
-    </div>
-
+<h5 style={{'color':'black'}}>365 Days Planner with Health Checklist</h5>
+<h6 style={{'color':'black'}}>Rs.199.00 <span style={{'color':'#ababab'}}>Rs.{carousel.price}</span></h6>
+<h6 style={{'color':'green'}}>Save Rs.200.00</h6><br/>
+<div style={{'border-bottom':'1px solid grey','width':'50%','margin':'auto'}}></div><br/>
+<h4 style={{'color':'black'}}>Description</h4>
+<span>{carousel.description}</span>
 </div>
-
-            </section>
-
-            ))}
         </div>
     )
 }

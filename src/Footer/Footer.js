@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="col-md-4 social-content">
             <div className="brand">
               <img src={logo} alt="logo" width='80px' height="70px" />
-              <h2 className="title">THE PRINT STATION</h2>
+              <h2 className="title">THE <span style={{'color':'#df3b38'}}>PRINT </span> STATION</h2>
             </div>
             <div className="community">
               <h4 className="text">Join Our Social Community</h4>

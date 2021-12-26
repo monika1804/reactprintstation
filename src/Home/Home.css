@@ -35,14 +35,16 @@ button:hover{
 .home-content{
   margin-top: 0px;
   /* background-color: #9c7013; */
-  /* background-color: #b88312; */
-  background-color: #c7532c;
+  /* background-color: #b88312; 
+  background-color: #c7532c;*/
+  background:#df3b38;
   padding: 30px;
 }
 .video-content{
   margin-top: 0px;
- background-color: #6c8f31;
+ background-color: #b3e5fc;
   padding: 40px;
+ 
 }
 .Home-card{
   display: flex;
@@ -52,7 +54,7 @@ button:hover{
   font-size: 50px;
     margin: '10px 0 30px';
     line-height: '30px';
-    color: #fff;
+    color:#344850;
     font-family: 'sans-serif';
   }
   .Heading-content{
@@ -63,13 +65,13 @@ button:hover{
   }
 .offer{
   font-family: "Gill Sans", sans-serif;
-  color: #fff;
+  color: #344850;
   font-style: italic;
   font-weight: 600;
 }
 .print-content{
   font-family: "Gill Sans", sans-serif;
-  color: #fff;
+  color:#344850;
   text-align: left;
 }
 .work-content{

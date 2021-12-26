@@ -9,7 +9,7 @@ export default function VideoContent() {
     <div>
       <div className="row">
         <div className="col-md-6">
-          <h1 className="header">The Print Station</h1>
+          <h1 className="header">The <span style={{'color':'#df3b38'}}>Print</span> Station</h1>
           <h4 className="offer">We're Offering Faster Delivery (with 2-3 days)and Normal Delivery(with 3-5 days)</h4>
           <h4 className="print-content">The Print Station app is the smarter way to order your printing in app and
           Our team will carefully package it and get it delivered to your doorsteps. We charge No fees on delivery for the cart value
