@@ -28,7 +28,5 @@ export async function getMetadataFromRef(item){
 }
 
 export function isFileTypeSupported(file){
-  let x = supportedFileTypes.includes(file.type)
-  console.log("hwy ya", x)
-  return x
+  return supportedFileTypes.includes(file.type)
 }

@@ -30,15 +30,16 @@ export default function Login({
   changeModalState,
   open,
 }){
-  const { firebaseAuth, register, firebaseLogin } = useAuth() 
+  const { firebaseAuth, register, firebaseLogin, setUserName } = useAuth() 
   let [toast, setToast] = useState(false)
   let [isSubmitting, setIsSubmitting] = useState(false)
   let [signup, setSignup] = useState(false)
-  let [values, setValues] = useState({showPassword: false, password: "", email: "", confirm_password: ""})
+  let [values, setValues] = useState({showPassword: false, password: "", email: "", confirm_password: "", userName: ""})
   let [errors, setErrors] = useState({
     shortPassword: false,
     emailValid: false,
     confirmPassword: false,
+    userNameValid: false
   })
   let [toastMessage, setToastMessage] = useState({severity: "success", message: ""})
   const uiConfig = {
@@ -57,7 +58,6 @@ export default function Login({
   const handleOnSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    console.log(e)
     if (!validEmail(values.email)){
       errors.emailValid = true
       return
@@ -65,6 +65,7 @@ export default function Login({
     if (signup) {
       try {
         let res = await register(values.email, values.password)
+        let userName = await setUserName(values.userName)
         setToast(true)
         setToastMessage({severity: "success", message:"registration successfull check your email to confirm"})
       }
@@ -118,6 +119,10 @@ export default function Login({
     })
   }
 
+  const setName = (e) => {
+    setValues({...values, userName: e.target.value})
+  }
+
   const handleClose = () => {
     setToast(false)
   }
@@ -144,6 +149,7 @@ export default function Login({
             {
               signup ? 
                 <SignUp 
+                  setName = {setName}
                   values = {values} 
                   setEmail = {setEmail} 
                   setPassword = {setPassword}

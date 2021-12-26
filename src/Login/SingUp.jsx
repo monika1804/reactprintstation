@@ -8,12 +8,27 @@ export default function SignUp({
   setEmail,
   setPassword,
   setConfirmPassword,
+  setName,
   errors
 }) {
   let [showPassword, setShowPassword] = useState(false)
   
   return(
     <Box sx = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <FormControl sx={{ m: 1, width: '25ch' }}>
+        <TextField
+          error = {errors.userNameValid}
+          helperText = {errors.userNameValid? "please enter your name": ""}      
+          required = {true}
+          id = "standard-username"
+          type = "text"
+          value = {values.userName}
+          onChange = {e => setName(e)}
+          label = "Name"
+          size = "small"
+          variant = "standard"
+        />
+      </FormControl>
       <FormControl sx={{ m: 1, width: '25ch' }}>
         <TextField
           error = {errors.emailValid}

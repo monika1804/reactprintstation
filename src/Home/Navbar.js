@@ -20,17 +20,18 @@ import Login from '../Login/Login';
 import { useAuth } from '../context/context';
 
 export default function NavbarContent() {
-  const { currentUser, firebaseLogout } = useAuth()
+  const { currentUser, firebaseLogout, userData, firebaseAuth } = useAuth()
   const [open, setOpen] = useState(false);
   const [logOut, setLogOut] = useState(false)
   useEffect(()=>{
-    if(currentUser){
+    if(firebaseAuth.currentUser){
       setLogOut(true)
       setOpen(false)
     }else{
       setLogOut(false)
     }
-  },[currentUser])
+  },[firebaseAuth.currentUser])
+
   const changeModalState = () => {
     if(logOut){
       firebaseLogout()
@@ -80,7 +81,7 @@ export default function NavbarContent() {
                   changeModalState={changeModalState}
                   open={open}
                 />
-                <Box sx = {{color:"red"}}>{currentUser}</Box>
+                <Box sx = {{color:"red"}}>welcome, {firebaseAuth.currentUser? firebaseAuth.currentUser.displayName: ""}</Box>
               </div>
             </Navbar.Collapse>
           </Container>

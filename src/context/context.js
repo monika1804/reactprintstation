@@ -1,21 +1,27 @@
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "@firebase/auth";
+import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, updateProfile } from "@firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { firebaseAuth, firebaseStorage } from '../firebase/init'
+import { firebaseAuth, firebaseStorage, firebaseDatabase } from '../firebase/init'
 import { ref, uploadBytesResumable } from "@firebase/storage"
-
+import { get, ref as dbRef, set } from "@firebase/database"
 let AuthContext = createContext()
 
 export const useAuth = () => useContext(AuthContext)
 
 export default function AuthProvider({children}) {
   const [currentUser, setCurrentUser] = useState(null)
+  const [userData, setUserData] = useState({
+    signedUp: false,
 
+  })
   useEffect(() => {
-    const unregisterAuthObserver = values.firebaseAuth.onAuthStateChanged(user => {
+    const unregisterAuthObserver = values.firebaseAuth.onAuthStateChanged(async user => {
       if (user != null){
         setCurrentUser(user.uid)
+        const userData = await getDataFromDb(user.uid)
+        setUserData(userData.val())
       }else{
         setCurrentUser(null)
+        setUserData({})
       }
     })
     return () => unregisterAuthObserver()
@@ -23,12 +29,16 @@ export default function AuthProvider({children}) {
 
   let values = {
     currentUser: currentUser,
+    userData: userData,
     firebaseAuth: firebaseAuth,
     register: register,
     firebaseLogout: firebaseLogout,
     firebaseLogin: firebaseLogin,
     getRef: getRef,
-    uploadToFirebase: uploadToFirebase
+    uploadToFirebase: uploadToFirebase,
+    addDataToDb: addDataToDb,
+    getDataFromDb: getDataFromDb,
+    setUserName: setUserName
   }
   
   function getRef(path){
@@ -43,13 +53,26 @@ export default function AuthProvider({children}) {
     return createUserWithEmailAndPassword(values.firebaseAuth,email, password)
   }
 
+  function setUserName(username){
+    return updateProfile(firebaseAuth.currentUser, {displayName: username})
+  }
+
   function firebaseLogout(){
     return signOut(values.firebaseAuth)
   }
 
   function uploadToFirebase(ref, file, metadata){
-    console.log("we here", metadata)
     return uploadBytesResumable(ref, file, metadata) 
   }
+
+  function getDataFromDb(userId){
+    return get(dbRef(firebaseDatabase, `users/${userId}`))
+    
+  }
+
+  function addDataToDb(userId, data){
+    return set(dbRef(firebaseDatabase, `users/${userId}`), data)
+  }
+
   return <AuthContext.Provider value = {values}>{children}</AuthContext.Provider>
 }
