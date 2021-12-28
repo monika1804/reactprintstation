@@ -118,10 +118,16 @@ scribble around with new ideas</h6>
 </AccordionSummary>
 <div class="row  printcategory">
 
-<div class="col-md-12"><a href="/tpsmerChandise"><img src="image/Tee2.jpg" class="book-image3" />
-<h6 style={{'color':'black'}}>TPS Merchandise (Coming Soon)</h6><br/>
+<div class="col-md-6"><a href="/tpsmerChandise"><img src="image/Tee2.jpg" class="book-image3" />
+<h6 style={{'color':'black'}}>Printed Coffee Mugs</h6><br/>
 <h6 style={{'color':'white', 'background':'#0e73b0','border-radius':'20px','width':'50%','margin':'auto','padding':'2px'}}>Coming Soon</h6><br/>
 </a></div>
+
+<div class="col-md-6"><a href="/tpsmerChandise"><img src="image/Tee2.jpg" class="book-image3" />
+<h6 style={{'color':'black'}}>T-shirts</h6><br/>
+<h6 style={{'color':'white', 'background':'#0e73b0','border-radius':'20px','width':'50%','margin':'auto','padding':'2px'}}>Coming Soon</h6><br/>
+</a></div>
+
 </div> 
   
 </Accordion> 
