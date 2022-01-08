@@ -35,3 +35,7 @@ export function isFileTypeSupported(file){
 export function generateNewKey(path){
   return push(path).key
 }
+
+export function userDetailsFilled(userObject){
+  
+}

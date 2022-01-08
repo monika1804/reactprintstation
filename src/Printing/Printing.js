@@ -6,13 +6,19 @@ import Footer from '../Footer/Footer';
 import Customise from './Customise';
 import Uploader from './Uploader';
 import { getNumPages } from '../utils/utils';
+import { useAuth } from '../context/context';
+import { Redirect } from 'react-router-dom';
 
 
 
 export default function Printing() {
+  let { firebaseAuth } = useAuth()
   const [file, setFile] = useState({fileName:"", numPage: 1})
   const [update, setUpdate] = useState(false)
-
+  console.log(firebaseAuth.currentUser, !firebaseAuth.currentUser)
+  if (!firebaseAuth.currentUser) {
+    return (<Redirect to = "/home" />)
+  }
 
 
   return (

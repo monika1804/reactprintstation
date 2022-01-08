@@ -2,34 +2,56 @@ import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, up
 import { createContext, useContext, useEffect, useState } from "react";
 import { firebaseAuth, firebaseStorage, firebaseDatabase } from '../firebase/init'
 import { ref, uploadBytesResumable } from "@firebase/storage"
-import { get, ref as dbRef, set } from "@firebase/database"
+import { get, ref as dbRef, set, onValue, off } from "@firebase/database"
 let AuthContext = createContext()
 
 export const useAuth = () => useContext(AuthContext)
 
 export default function AuthProvider({children}) {
   const [currentUser, setCurrentUser] = useState(null)
-  const [userData, setUserData] = useState({
-    signedUp: false,
-
+  const [userProfile, setUserProfile] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    state: "",
+    pincode: ""
   })
+  const [cartData, setCartData] = useState(undefined)
+  const [progress, setProgress] = useState(false)
+
   useEffect(() => {
+    let profileObserver = () => {}
+    let cartObserver = () => {}
     const unregisterAuthObserver = values.firebaseAuth.onAuthStateChanged(async user => {
       if (user != null){
         setCurrentUser(user.displayName)
-        const userData = await getDataFromDb()
-        setUserData(userData.val())
+        cartObserver = onValue(getDbRef(`users/${user.uid}/cart`), (snapshot)=>{
+          setCartData(snapshot.val())
+        })
+        profileObserver = onValue(getDbRef(`users/${user.uid}/userMetadata`), (snapshot)=>{
+          if(snapshot.exists()){
+            setUserProfile(snapshot.val())
+          }
+        })
       }else{
         setCurrentUser(null)
-        setUserData({})
+        setCartData(null)
+        setUserProfile(null)
       }
     })
-    return () => unregisterAuthObserver()
+    return () => {
+      profileObserver()
+      cartObserver()
+      unregisterAuthObserver()
+    }
   }, []);
 
   let values = {
     currentUser: currentUser,
-    userData: userData,
+    cartData: cartData,
     firebaseAuth: firebaseAuth,
     register: register,
     firebaseLogout: firebaseLogout,
@@ -39,7 +61,9 @@ export default function AuthProvider({children}) {
     addDataToDb: addDataToDb,
     getDataFromDb: getDataFromDb,
     setUserName: setUserName, 
-    getDbRef: getDbRef
+    getDbRef: getDbRef,
+    userProfile: userProfile,
+    progress: {progress: progress, setProgress: setProgress}
   }
   
   function getRef(path){

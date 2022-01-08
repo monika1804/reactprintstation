@@ -30,7 +30,7 @@ export default function Login({
   changeModalState,
   open,
 }){
-  const { firebaseAuth, register, firebaseLogin, setUserName, addDataToDb } = useAuth() 
+  const { firebaseAuth, register, firebaseLogin, setUserName, addDataToDb, userProfile } = useAuth() 
   let [toast, setToast] = useState(false)
   let [isSubmitting, setIsSubmitting] = useState(false)
   let [signup, setSignup] = useState(false)
@@ -66,11 +66,14 @@ export default function Login({
       try {
         await register(values.email, values.password)
         await setUserName(values.userName)
-        await addDataToDb({cart: "", userMetaData: "", orders: ""})
+        await addDataToDb("",{cart: "", userMetadata: {
+          ...userProfile, firstName: values.userName, email: values.email
+        }, orders: ""})
         setToast(true)
         setToastMessage({severity: "success", message:"registration successfull check your email to confirm"})
       }
       catch (e) {
+        console.log(e)
         setToast(true)
         setToastMessage({severity: "error", message: e.message})
       } 

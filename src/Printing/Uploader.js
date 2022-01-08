@@ -8,7 +8,7 @@ import { getNumPages, isFileTypeSupported } from '../utils/utils';
 
 
 export default function Uploader({update, setUpdate}) {
-  const { getRef, currentUser, uploadToFirebase } = useAuth()
+  const { getRef, currentUser, uploadToFirebase, progress } = useAuth()
   const inputFileRef = useRef(null)
   const [file, setFile] = useState(undefined)
   const [fileUploading, setFileUploading] = useState(false)
@@ -18,7 +18,7 @@ export default function Uploader({update, setUpdate}) {
     message: "",
     severity: "success"
   })
-
+  console.log("heck ", progress)
   const handleUploadFile = async(e) => {
     setFileUploading(true)
     console.log("filename", e.target.files[0].name)
@@ -61,6 +61,7 @@ export default function Uploader({update, setUpdate}) {
       //   console.log('File available at', downloadURL);
       // });
       setUpdate(!update)
+      progress.setProgress(true)
       setFileUploading(false)
       e.target.value = null
       setToast({

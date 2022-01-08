@@ -5,7 +5,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory,
+  Redirect
 } from "react-router-dom";
 import About from '../AboutUS/About';
 import PdfTools from '../PDFTools/PdfTools';
@@ -17,10 +19,11 @@ import logo from '../images/logo.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
 import Login from '../Login/Login';
+import Profile from "../Profile/Profile"
 import { useAuth } from '../context/context';
 
 export default function NavbarContent() {
-  const { currentUser, firebaseLogout, userData, firebaseAuth } = useAuth()
+  const { currentUser, firebaseLogout, firebaseAuth, cartData } = useAuth()
   const [open, setOpen] = useState(false);
   const [logOut, setLogOut] = useState(false)
   useEffect(()=>{
@@ -60,9 +63,6 @@ export default function NavbarContent() {
                   <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="px-3">
-                  <Nav.Link as={Link} to={"/printing"}>Printing</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/shopping"}>Shopping</Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="px-3">
@@ -74,6 +74,15 @@ export default function NavbarContent() {
                 <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
                 </Nav.Item>
+                {firebaseAuth.currentUser ?
+                <>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/printing"}>Printing</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/profile"}>Profile</Nav.Link>
+                </Nav.Item>
+                </>: ""}
               </Nav>
               <div>
                 <Button variant="outline-light" onClick={e => changeModalState()}>{logOut? "Logout": "Login"}</Button>
@@ -81,7 +90,8 @@ export default function NavbarContent() {
                   changeModalState={changeModalState}
                   open={open}
                 />
-                <Box sx = {{color:"red"}}>welcome, {currentUser}</Box>
+                <Box sx = {{color:"red"}}>welcome, {currentUser} {JSON.stringify(cartData)}</Box>
+                
               </div>
             </Navbar.Collapse>
           </Container>
@@ -103,6 +113,9 @@ export default function NavbarContent() {
           </Route>
           <Route path="/track">
             <TrackOrder />
+          </Route>
+          <Route path = "/profile">
+            <Profile />
           </Route>
           <Route path="/">
             <Home />

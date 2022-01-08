@@ -7,7 +7,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { generateNewKey } from '../utils/utils';
 import CustomToast from '../utils/Toast';
 export default function Customise({numPage, fileName}) {
-  let { addDataToDb, getDbRef, firebaseAuth, getDataFromDb } = useAuth()
+  let { addDataToDb, getDbRef, firebaseAuth, cartData } = useAuth()
   const [toast, setToast] = useState({
     show: false,
     message: "",
@@ -42,16 +42,18 @@ export default function Customise({numPage, fileName}) {
       quantity: metadata.quantity,
       metadata: metadata
     }
-    console.log(firebaseAuth)
     let key = generateNewKey(getDbRef(`users/${firebaseAuth.currentUser.uid}/cart`))
-    console.log("jey", key)
     await addDataToDb(`cart/${key}`, cartItem)
-    let data = await getDataFromDb("cart")
     setToast({show: true, message: "item added sucessfully to cart", severity: "success"})
-    console.log("ss", data.val(), cartItem)
   }
   return (
-    fileName == ""?<div></div>:
+    fileName == ""?
+    <Box sx = {{display: "flex", justifyContent: "center", alignItems: "center"}}>
+      <Typography variant = "h3">
+        Please Upload Or Select a File
+      </Typography>
+    </Box>
+    :
     <div>
         <div>
           <h4>Choose the option given below for {fileName}:</h4>

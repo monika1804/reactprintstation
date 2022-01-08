@@ -1,18 +1,18 @@
-import { Avatar, Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Typography } from "@mui/material"
+import { Avatar, Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, CircularProgress, Typography } from "@mui/material"
 import { red } from "@mui/material/colors"
 import { useEffect, useState } from "react"
 import { useAuth } from "../context/context"
 import { listFilesInFirebase, getMetadataFromRef } from "../utils/utils"
 import './card.css'
 export default function UploadedCards({update, setFile}) {
-  let { getRef, currentUser } = useAuth()
+  let { getRef, currentUser, progress } = useAuth()
   let [ files, setFiles ] = useState([])
   let [ active, setActive ] = useState(0)
   useEffect(async ()=>{
     let filesRef = await listFilesInFirebase(getRef(currentUser))
     let files = await getMetadataFromRef(filesRef.items)
-    console.log(files)
     setFiles(files)
+    progress.setProgress(false)
   },[update])
 
   const handleCardClick = (e, index) => {
@@ -48,6 +48,14 @@ export default function UploadedCards({update, setFile}) {
         </Card>
       )})
     return data
+  }
+
+  if (progress.progress){
+    return  (
+      <Box sx = {{display: "flex", justifyContent: "center", alignItems: "center", height: "200px"}}>
+        <CircularProgress />
+      </Box>
+    )
   }
   return(
     <Box sx = {{display: "flex", flexDirection: "row", flexWrap: "wrap" , justifyContent: "flex-start", padding: "10px"}}>
