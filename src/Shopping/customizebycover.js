@@ -1,90 +1,70 @@
-import React from 'react'
-import { Carousel } from 'react-bootstrap';
+import React, {useState} from 'react'
 import './shopping.css';
+import {customizebycoverData} from "./customizebycover_data"
 import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
-
+import { Carousel } from 'react-bootstrap';
   
-function Users(){
-    const data=[
-        {id:1,
-            image:"./image/cover.png",
-            image2:"./image/cover2.png",
-            image3:"./image/cover3.png",
-            image4:"./image/cover4.png",
-            name:"Customize By Cover",
-            description:"A4 Spiral Bound Fully Customized Notebook",
-            description2:"200 Pages,Unruled,Pack of 1 (Full Customized Cover Page)",
-            mrp:"Rs.299",
-            price:"Rs.169",
-            free:"Free Delivery All Over India"
-         
-           
-        }
-    ]
-    return(
-        <div>
-             <div class="container">
-            <div class="jumbotron">
-            <h2 class="display-4">Customize By Cover</h2>
-            <p class="lead">Upload Your Favourite Customize By Cover On Our The Print Station And Get Delivered It to your Doorsteps.</p>
-         </div>
+
+function Planners(){
+    let [carousel, setCarousel] = useState(customizebycoverData[0])
+    const handleImageClick=(e, key)=> {
+        setCarousel(customizebycoverData[key])
+    }
+    
+    
+  
+
+    return( 
         
-        </div>
+<div class="container-fluid">
+<div class="imgcarousel">
+
      
-            {data.map((user)=>(
-                <section class="container-fluid">
- <div className ="card-container">
-    <div class="row"> 
+<Carousel variant="dark">
+{carousel.carouselImages.map((image, key)=>{
+    return(
+        <Carousel.Item>
+        <img src={image} class="book-image4" />
+        </Carousel.Item>
+    )
+})}
+</Carousel>    
 
-    <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div class="slider">
-    <a href=""><img src={user.image} alt="no" class="book-image" /></a>
-    </div>
-    </div>
+<div class="imgonclick">
+    {customizebycoverData.map((images, key) => {
+        return(<img key = {key} src= {images.mainImage} class="book-image3" onClick = {e => handleImageClick(e, key)}/>)
+    })}
+ </div>  
+ <br/>
+<select class="form-select" aria-label="Default select example" style={{'width':'25%','margin':'auto'}}>
+  <option selected>Select Variant</option>
+  <option value="1">1 Notebook,200 Pages</option>
+  <option value="2">1 Notebook,300 Pages</option>
+  <option value="3">1 Notebook,400 Pages</option>
+</select><br/>
+<h5 style={{'color':'black'}}>{carousel.plannername}</h5>
+<h6 style={{'color':'black'}}>{carousel.mainprice} <span style={{'color':'#ababab', 'text-decoration': 'line-through'}}>{carousel.preprice}</span></h6>
+<h6 style={{'color':'green'}}>{carousel.saveprice}</h6><br/>
+<div style={{'border-bottom':'1px solid grey','width':'50%','margin':'auto'}}></div><br/>
+<h4 style={{'color':'black'}}>Description</h4>
+<h6>{carousel.description}</h6><br/>
+<h5 style={{'color':'black'}}>Description</h5>
+<h6 style={{'color':'black'}}>{carousel.description2}</h6>
+<h6 style={{'color':'black'}}>{carousel.description3}</h6>
+<h6 style={{'color':'black'}}>{carousel.description4}</h6>
+<h6 style={{'color':'black'}}>{carousel.description5}</h6>
+<h6 style={{'color':'black'}}>{carousel.description6}</h6>
+<h6 style={{'color':'black'}}>{carousel.description7}</h6>
+<h6 style={{'color':'black'}}>{carousel.description8}</h6>
+<br/>
 
-    <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div class="slider">
-    <a href=""><img src={user.image2} alt="no" class="book-image" /></a>
-    </div>
-    </div>
 
-    <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div class="slider">
-    <a href=""><img src={user.image3} alt="no" class="book-image" /></a>
-    </div>
-    </div>
-    
-    <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-    <div class="slider">
-    <a href=""><img src={user.image4} alt="no" class="book-image" /></a>
-    </div>
-    </div>
+<br/>
 
-    </div><br/>
-
-    <div class="content">
-    <p class="description"><b>{user.name}</b></p>
-    <p class="description">{user.description} <br/>{user.description2}</p>
-    <span class="mrp"><b>Mrp:</b> <del>{user.mrp}</del></span> 
-    <p class="description"><b>Rs.</b> {user.price}</p>
-    <p class="description">{user.free}</p>
-
-    <form class="form w-25 m-auto">
-        
-            <input type="file" class="form-control" id="customFile"/><br/>
-            <button type="button" class="btn btn-default">Upload</button>
-        
-        </form><br/>
-    
-        <div><button type="button" class="btn btn-default">Add To Cart</button></div>
-    </div>
-
+<a href="/menucard"><button type="button" class="btn btn-light">BACK</button></a>
+<button type="button" class="btn btn-primary">Add To Cart</button><br/><br/>
 </div>
-
-            </section>
-
-            ))}
         </div>
     )
 }
-export default Users;
+export default Planners;

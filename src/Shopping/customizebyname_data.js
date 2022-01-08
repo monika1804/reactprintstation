@@ -1,0 +1,121 @@
+export const customizebynameData=[
+    {
+        mainImage: "images/name1.jpg",
+        carouselImages: ["images/name1.jpg", "images/name2.jpg", "images/name3.jpg","images/name4.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name5.jpg",
+        carouselImages: ["images/name5.jpg", "images/name6.jpg", "images/name7.jpg","images/name8.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name9.jpg",
+        carouselImages: ["images/name9.jpg", "images/name10.jpg", "images/name11.jpg","images/name12.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name13.jpg",
+        carouselImages: ["images/name13.jpg", "images/name14.jpg", "images/name15.jpg","images/name16.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name17.jpg",
+        carouselImages: ["images/name17.jpg", "images/name18.jpg", "images/name19.jpg","images/name20.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name21.jpg",
+        carouselImages: ["images/name21.jpg", "images/name22.jpg", "images/name23.jpg","images/name24.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+    {
+        mainImage: "images/name25.jpg",
+        carouselImages: ["images/name25.jpg", "images/name26.jpg", "images/name27.jpg","images/name28.jpg"],
+        plannername:"Customized Name Notebook[200 Pages]",
+        mainprice:"Rs.149.00",
+        preprice:"Rs.199.00",
+        saveprice:"Save Rs.50.00",
+        description: "A4 Spiral Bound Notebook,200 Pages,29*21cm, Unruled(Customized Name Notebooks)",
+        description2:".Brand:The Print Station",
+        description3:".Size:A4,29.7*21 cm",
+        description4:".Ruling:Plain",
+        description5:".Cover Finish:Photo Glossy",
+        description6:".Paper Finish:Uncoated",
+        description7:".GSM:70", 
+      
+
+    },
+]

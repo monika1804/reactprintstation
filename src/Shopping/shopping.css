@@ -4,21 +4,12 @@
 
     
 }
-.tps-image{
-    height:auto;
-    width:60%;
-    border-radius:5px;
-    margin-top:20px;
-}
 
 
 
 
-.card-container{
-    margin-top:50px;
-    margin-bottom:50px;
 
-}
+
 
 
 
@@ -38,17 +29,7 @@
   
 }
 
-.btn-default{
-    border:2px solid #414141;
-    background-color: transparent;
-    color: #414141;
- 
-}
-.btn-default:hover{
-    background-color:#414141;
-    color:white;
-      
-}
+
 /*.img-circle
 {height:200px;
 width:200px;
@@ -121,17 +102,7 @@ box-shadow:2px 2px 0px 0px grey;}
    
 }
 
-.btn-outline{
-    background:#6495ED;
-    color:white;
 
-}
-.btn:hover{
-    background:white;
-    color:#6495ED;
-    border:1px solid #6495ED;
-   
-}
 .back-shop-content{
        
     margin-top:5vh;
@@ -234,14 +205,14 @@ ul ul a {
 
 
 .back-shop-content{
-    background:#b3e5fc;
+    background:#B3E5FC;
     padding:20px;
 
     margin:auto;
 
 }
 .printitems li{
-    border:2px solid #b3e5fc;
+    border:2px solid #B3E5FC;
     padding:20px;
     width:50%;
     margin:auto;
@@ -282,9 +253,22 @@ ul ul a {
 } 
 .book-image3{
     border:2px solid lightgray;
-    padding:4px;
+    padding:0.3%;
     margin-right:20px;
 }
 .book-image3:hover{
   border:2px solid #0e73b0;
 }
+/*diary*/
+.btn-primary{
+border-radius:0px;
+box-shadow:10px 10px 10px 10px rgba(0,0,0,0.253);
+width:20%;
+background:#0277BD;
+}
+.btn-light{
+    border-radius:0px;
+    box-shadow:10px 10px 10px 10px rgba(0,0,0,0.253);
+    width:20%;
+     
+    }

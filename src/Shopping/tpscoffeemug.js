@@ -1,14 +1,15 @@
+
 import React, {useState} from 'react'
 import './shopping.css';
-import {motivationalpostersData} from "./motivationalposters_data"
+import {tpscupData} from "./tpscoffeemug_data"
 import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
 import { Carousel } from 'react-bootstrap';
   
 
 function Planners(){
-    let [carousel, setCarousel] = useState(motivationalpostersData[0])
+    let [carousel, setCarousel] = useState(tpscupData[0])
     const handleImageClick=(e, key)=> {
-        setCarousel(motivationalpostersData[key])
+        setCarousel(tpscupData[key])
     }
     
     
@@ -31,7 +32,7 @@ function Planners(){
 </Carousel>    
 
 <div class="imgonclick">
-    {motivationalpostersData.map((images, key) => {
+    {tpscupData.map((images, key) => {
         return(<img key = {key} src= {images.mainImage} class="book-image3" onClick = {e => handleImageClick(e, key)}/>)
     })}
  </div>  
@@ -42,15 +43,10 @@ function Planners(){
 <div style={{'border-bottom':'1px solid grey','width':'50%','margin':'auto'}}></div><br/>
 <h4 style={{'color':'black'}}>Description</h4>
 <h6>{carousel.description}</h6><br/>
-<h5 style={{'color':'black'}}>Description</h5>
-<h6 style={{'color':'black'}}>{carousel.description2}</h6>
-<h6 style={{'color':'black'}}>{carousel.description3}</h6>
-<h6 style={{'color':'black'}}>{carousel.description4}</h6>
-<h6 style={{'color':'black'}}>{carousel.description5}</h6>
-<h6 style={{'color':'black'}}>{carousel.description6}</h6>
-<h6 style={{'color':'black'}}>{carousel.description7}</h6><br/>
 <a href="/menucard"><button type="button" class="btn btn-light">BACK</button></a>
 <button type="button" class="btn btn-primary">Add To Cart</button><br/><br/>
+<br/>
+
 </div>
         </div>
     )

@@ -8,16 +8,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography, { typographyClasses } from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
- 
+
 function Users(){
     
 return(
     <div class="container-fluid">
-  
-    
-
-  
-
 <div class="back-shop-content">
 <h1 style={{'color':'#344850'}}>The <span style={{'color':'#df3b38'}}>Print</span> Station</h1><br/>
 <h3 style={{'color':'#344850'}}>What Would You Like To Purchase Today?</h3>
@@ -40,12 +35,12 @@ scribble around with new ideas</h6>
 </AccordionSummary>
 
 <div class="row printcategory">
-<div class="col-md-6"><a href="/planners"><img src="image/book2.jpg" class="book-image3"/><br/>
+<div class="col-md-6"><a href="/planners"><img src="images/daily_planner.png" class="book-image3"/><br/>
 <h6 style={{'color':'black'}}>Daily Planners</h6><br/>
 <h6 style={{'color':'#ababab'}}>Starts at 199.00</h6>
 <h6 style={{'color':'green'}}>Up to 50% off</h6><br/></a></div>
 
-<div class="col-md-6"><a href="/diary"><img src="image/diary205.png" class="book-image3"/><br/>
+<div class="col-md-6"><a href="/diary"><img src="images/diary.png" class="book-image3"/><br/>
 <h6 style={{'color':'black'}}>Diary</h6><br/>
 <h6 style={{'color':'#ababab'}}>Starts at 299.00</h6>
 <h6 style={{'color':'green'}}>Up to 60% off</h6></a></div>
@@ -64,21 +59,16 @@ scribble around with new ideas</h6>
 </AccordionSummary>
 <div class="row  printcategory">
 
-<div class="col-md-4"><a href="/customizedframes"><img src="image/complete package_set.png" class="book-image3" />
+<div class="col-md-6"><a href="/customizedframes"><img src="images/customize_frames.png" class="book-image3" />
 <h6 style={{'color':'black'}}>Customised Frames</h6><br/>
 <h6 style={{'color':'#ababab'}}>Starts at 349.00</h6>
 <h6 style={{'color':'green'}}>Up to 33% off</h6><br/>
 </a></div>
       
-<div class="col-md-4"><a href="/motivationalposters"><img src="image/Main Image2.png" class="book-image3" />
-<h6 style={{'color':'black'}}>Motivational Posters</h6><br/>
-<h6 style={{'color':'#ababab'}}>Starts at 299.00</h6>
-<h6 style={{'color':'green'}}>Up to 70% off</h6><br/>
 
-</a></div>
 
-<div class="col-md-4"><a href="/motivationalquoteframewithposters"><img src="image/set.jpg" class="book-image3" />
-<h6 style={{'color':'black'}}>Motivational Quote Frame With Posters</h6>
+<div class="col-md-6"><a href="/motivationalquoteframewithposters"><img src="images/motivational_quote_frame.png" class="book-image3" />
+<h6 style={{'color':'black'}}>Motivational Quote Frame<br/> With Posters</h6>
 <h6 style={{'color':'#ababab'}}>Starts at 299.00</h6>
 <h6 style={{'color':'green'}}>Up to 70% off</h6>
 </a></div>
@@ -96,13 +86,13 @@ scribble around with new ideas</h6>
 </Typography>
 </AccordionSummary>
 <div class="row  printcategory">
-<div class="col-md-6"><a href="/customizebycover"><img src="image/cover.png" class="book-image3" />
-<h6 style={{'color':'black'}}>Customize By Cover</h6><br/>
+<div class="col-md-6"><a href="/customizebycover"><img src="images/customize_notebook_with_cover.png" class="book-image3" />
+<h6 style={{'color':'black'}}>Customized Cover <br/>Photo Notebook</h6><br/>
 <h6 style={{'color':'#ababab'}}>Starts at 149.00</h6>
 <h6 style={{'color':'green'}}>Up to 25% off</h6><br/></a></div>
       
-<div class="col-md-6"><a href="/customizebyname"><img src="image/name1.png" class="book-image3" />
-<h6 style={{'color':'black'}}>Customize By Name</h6><br/>
+<div class="col-md-6"><a href="/customizebyname"><img src="images/customize_notebook_with_name.png" class="book-image3" />
+<h6 style={{'color':'black'}}>Customized Name<br/> Notebook</h6><br/>
 <h6 style={{'color':'#ababab'}}>Starts at 149.00</h6>
 <h6 style={{'color':'green'}}>Up to 25% off</h6></a></div>
 </div> 
@@ -118,12 +108,12 @@ scribble around with new ideas</h6>
 </AccordionSummary>
 <div class="row  printcategory">
 
-<div class="col-md-6"><a href="/tpsmerChandise"><img src="image/Tee2.jpg" class="book-image3" />
+<div class="col-md-6"><a href="/tpscoffeemug"><img src="images/lifestyle.png" class="book-image3" />
 <h6 style={{'color':'black'}}>Printed Coffee Mugs</h6><br/>
 <h6 style={{'color':'white', 'background':'#0e73b0','border-radius':'20px','width':'50%','margin':'auto','padding':'2px'}}>Coming Soon</h6><br/>
 </a></div>
 
-<div class="col-md-6"><a href="/tpsmerChandise"><img src="image/Tee2.jpg" class="book-image3" />
+<div class="col-md-6"><a href="/tpsmerChandise"><img src="images/clothing.png" class="book-image3" />
 <h6 style={{'color':'black'}}>T-shirts</h6><br/>
 <h6 style={{'color':'white', 'background':'#0e73b0','border-radius':'20px','width':'50%','margin':'auto','padding':'2px'}}>Coming Soon</h6><br/>
 </a></div>
@@ -159,4 +149,10 @@ scribble around with new ideas</h6>
 }
 export default Users;
 
-/**/
+/*later use
+<div class="col-md-4"><a href="/motivationalposters"><img src="images/motivational_poster.png" class="book-image3" />
+<h6 style={{'color':'black'}}>Motivational Posters</h6><br/>
+<h6 style={{'color':'#ababab'}}>Starts at 299.00</h6>
+<h6 style={{'color':'green'}}>Up to 70% off</h6><br/>
+
+</a></div>*/

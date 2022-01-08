@@ -30,6 +30,7 @@ import logo from '../images/logo.png';
 // import Logo from '../images/lockup-white.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
+
 import Login from '../Login/Login';
 
 export default function NavbarContent() {
@@ -73,7 +74,9 @@ export default function NavbarContent() {
                   <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
                 </Nav.Item>
               </Nav>
+            
               <div>
+                
                 <Button variant="outline-light" onClick={handleLoginClick}>Login</Button>
                 {open ?
                   <Login

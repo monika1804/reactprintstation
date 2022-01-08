@@ -37,12 +37,17 @@ function Planners(){
     })}
  </div>  
 
-<h5 style={{'color':'black'}}>365 Days Planner with Health Checklist</h5>
-<h6 style={{'color':'black'}}>Rs.199.00 <span style={{'color':'#ababab'}}>Rs.{carousel.price}</span></h6>
-<h6 style={{'color':'green'}}>Save Rs.200.00</h6><br/>
+
+
+<h5 style={{'color':'black'}}>{carousel.plannername}</h5>
+<h6 style={{'color':'black'}}>{carousel.mainprice} <span style={{'color':'#ababab', 'text-decoration': 'line-through'}}>{carousel.preprice}</span></h6>
+<h6 style={{'color':'green'}}>{carousel.saveprice}</h6><br/>
 <div style={{'border-bottom':'1px solid grey','width':'50%','margin':'auto'}}></div><br/>
 <h4 style={{'color':'black'}}>Description</h4>
-<span>{carousel.description}</span>
+<h6>{carousel.description}</h6><br/>
+<a href="/menucard"><button type="button" class="btn btn-light">BACK</button></a>
+<button type="button" class="btn btn-primary">Add To Cart</button><br/><br/>
+
 </div>
         </div>
     )

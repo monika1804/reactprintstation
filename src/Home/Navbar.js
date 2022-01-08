@@ -12,8 +12,9 @@ import PdfTools from '../PDFTools/PdfTools';
 import Printing from '../Printing/Printing';
 /*shooping Routes*/
 import Shopping from '../Shopping/menucard';
+import Menucard from '../Shopping/menucard';
 import Diary from '../Shopping/diary-planner';
-
+import TPSCoffeemug from '../Shopping/tpscoffeemug';
 import Planner from '../Shopping/planner';
 import FramesandPosters from'../Shopping/framesandposters';
 import CustomizedFrames from'../Shopping/customizedframes';
@@ -23,7 +24,7 @@ import Notebooks from '../Shopping/notebooks';
 import CustomizeByCover from '../Shopping/customizebycover';
 import CustomizeByName from '../Shopping/customizebyname';
 import TPSMERCHANDISE from '../Shopping/tpsmerchandise';
-
+import Cart from '../Shopping/cart';
 /*shopping Routes*/
 import Home from './Home';
 import logo from '../images/logo.png';
@@ -31,7 +32,7 @@ import logo from '../images/logo.png';
 import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
 import Login from '../Login/Login';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export default function NavbarContent() {
   const [open, setOpen] = useState(false);
 
@@ -73,7 +74,9 @@ export default function NavbarContent() {
                   <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
                 </Nav.Item>
               </Nav>
+         
               <div>
+              <a href="/cart"><ShoppingCartIcon style={{'font-size':'40px','color':'white','margin-right':'30px'}}/></a>
                 <Button variant="outline-light" onClick={handleLoginClick}>Login</Button>
                 {open ?
                   <Login
@@ -96,6 +99,9 @@ export default function NavbarContent() {
           </Route>
           <Route path="/shopping">
             <Shopping />
+          </Route>
+          <Route path="/menucard">
+            <Menucard  />
           </Route>
           <Route path="/diary">
             <Diary />
@@ -133,7 +139,13 @@ export default function NavbarContent() {
             <TPSMERCHANDISE />
           </Route>
         
-      
+          <Route path="/tpscoffeemug">
+            <TPSCoffeemug />
+          </Route>
+  
+          <Route path="/cart">
+            <Cart />
+          </Route>
 
           <Route path="/pdftool">
             <PdfTools />
