@@ -8,23 +8,24 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography, { typographyClasses } from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Footer from '../Footer/Footer';
 
 function Users(){
     
 return(
-    <div class="container-fluid">
+    <div>
 <div class="back-shop-content">
 <h1 style={{'color':'#344850'}}>The <span style={{'color':'#df3b38'}}>Print</span> Station</h1><br/>
 <h3 style={{'color':'#344850'}}>What Would You Like To Purchase Today?</h3>
 <h5 style={{'color':'#5d6a6d'}}>We Somehow Have The Best Stationary On The Market.</h5>
 </div>
 
-<br/><br/>
+<br/><br/><br/><br/>
 
 <div>
 
-<Accordion style={{'width':'50%','margin':'auto','border':'3px solid #b3e5fc','border-radius':'12px'}}>
-<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'grey','color':'white','border-radius':'100%'}}/>}> 
+<Accordion style={{'width':'50%','margin':'auto','border':'3px solid 	#89CFF0','border-radius':'10px',padding:'1%'}}>
+<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'lightgrey','color':'white','border-radius':'100%'}}/>}> 
 <Typography style={{'margin':'auto'}}>
   
 
@@ -33,7 +34,7 @@ return(
 scribble around with new ideas</h6>
 </Typography>
 </AccordionSummary>
-
+<br/>
 <div class="row printcategory">
 <div class="col-md-6"><a href="/planners"><img src="images/daily_planner.png" class="book-image3"/><br/>
 <h6 style={{'color':'black'}}>Daily Planners</h6><br/>
@@ -50,13 +51,14 @@ scribble around with new ideas</h6>
 <br/><br/>
 
 
-<Accordion style={{'width':'50%','margin':'auto','border':'3px solid #b3e5fc','border-radius':'12px'}}>
-<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'grey','color':'white','border-radius':'100%'}}/>}> 
+<Accordion style={{'width':'50%','margin':'auto','border':'3px solid #89CFF0','border-radius':'10px',padding:'1%'}}>
+<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'lightgrey','color':'white','border-radius':'100%'}}/>}> 
 <Typography style={{'margin':'auto'}}>
 <h4 style={{'color':'#0e73b0'}}>Frame & Posters</h4>
 <h6 style={{'color':'#ababab'}}>Create a wholesome world in your room with stunning posters & frames</h6>
 </Typography>
 </AccordionSummary>
+<br/>
 <div class="row  printcategory">
 
 <div class="col-md-6"><a href="/customizedframes"><img src="images/customize_frames.png" class="book-image3" />
@@ -78,13 +80,14 @@ scribble around with new ideas</h6>
   <br/><br/>
 
 
-<Accordion style={{'width':'50%','margin':'auto','border':'3px solid #b3e5fc','border-radius':'12px'}}>
-<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'grey','color':'white','border-radius':'100%'}}/>}> 
+<Accordion style={{'width':'50%','margin':'auto','border':'3px solid 	#89CFF0','border-radius':'10px',padding:'1%'}}>
+<AccordionSummary expandIcon={<ExpandMoreIcon style={{'background':'lightgrey','color':'white','border-radius':'100%'}}/>}> 
 <Typography style={{'margin':'auto'}}>
 <h4 style={{'color':'#0e73b0'}}>Notebooks</h4>
 <h6 style={{'color':'#ababab'}}>Beautiful customised spiral-bound notebooks</h6>
 </Typography>
 </AccordionSummary>
+<br/>
 <div class="row  printcategory">
 <div class="col-md-6"><a href="/customizebycover"><img src="images/customize_notebook_with_cover.png" class="book-image3" />
 <h6 style={{'color':'black'}}>Customized Cover <br/>Photo Notebook</h6><br/>
@@ -99,13 +102,14 @@ scribble around with new ideas</h6>
 </Accordion>
 <br/><br/>
 
-<Accordion style={{'width':'50%','margin':'auto','border':'3px solid #b3e5fc','border-radius':'12px'}}>
-<AccordionSummary expandIcon={<ExpandMoreIcon  style={{'background':'grey','color':'white','border-radius':'100%'}}/>}> 
+<Accordion style={{'width':'50%','margin':'auto','border':'3px solid 	#89CFF0','border-radius':'10px',padding:'1%'}}>
+<AccordionSummary expandIcon={<ExpandMoreIcon  style={{'background':'lightgrey',border:'1px solid lightgray','color':'white','border-radius':'100%'}}/>}> 
 <Typography style={{'margin':'auto'}}>
 <h4 style={{'color':'#0e73b0'}}>TPS Merchandise</h4>
 <h6 style={{'color':'#ababab'}}>Amazing  branded merchandise by The Print Station</h6>
 </Typography>
 </AccordionSummary>
+<br/>
 <div class="row  printcategory">
 
 <div class="col-md-6"><a href="/tpscoffeemug"><img src="images/lifestyle.png" class="book-image3" />
@@ -121,19 +125,24 @@ scribble around with new ideas</h6>
 </div> 
   
 </Accordion> 
-<br/><br/> 
+<br/><br/>
 
 
 </div>
 
 
 
+<div>
+  <a href="https://play.google.com/store/apps/details?id=com.freeprintstation.application&hl=en">
+    <img src="images/Pgif.gif" style={{'width':'40%','height':'auto'}}/></a>
+</div>
+
+<br/><br/><br/>
 
 
-
-
-
-
+<div xs={12} className="footer">
+        <Footer />
+      </div>
 
 
 

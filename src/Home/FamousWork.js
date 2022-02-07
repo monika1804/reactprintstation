@@ -16,33 +16,57 @@ import {
 export default function FamousWork() {
   return (
     <Router>
-      <div>
+      <div className="container">
         <div className="work-content">
-          <div>
+       
             <h1 className="famous-title">FAMOUS WORK</h1>
+      
+      
+          <br/>
+          <div>
+          <CardGroup >
+          <Card style={{ width: '14rem','margin':'15px','padding':'2%' ,'background-color': '#ffffff',
+              'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
+            <Card.Link href="/shopping">
+         <Card.Img variant="top" src={Image2} />
+          <Card.Body>
+          <Card.Title>
+            <h2>SHOPPING</h2>
+          </Card.Title>
+
+          </Card.Body>
+          </Card.Link>
+          </Card>
+
+          <Card style={{ width: '14rem','margin':'15px','padding':'2%','background-color': '#ffffff',
+              'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
+            <Card.Link href="/printing">
+         <Card.Img variant="top" src={Image1} />
+          <Card.Body>
+          <Card.Title>
+          <h2>PRINTING</h2>
+          </Card.Title>
+          </Card.Body>
+          </Card.Link>
+          </Card>
+
+
+          <Card style={{ width: '14rem','margin':'15px' ,'padding':'2%' ,'background-color': '#ffffff',
+              'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
+            <Card.Link href="/pdftool">
+         <Card.Img variant="top" src={Image3} />
+          <Card.Body>
+          <Card.Title>
+          <h2>PDF TOOL</h2>
+          </Card.Title>
+      
+          </Card.Body>
+          </Card.Link>
+          </Card>
+          </CardGroup >
           </div>
-          <CardGroup>
-            <Card className="famous-card" as={Link} to={"/shopping"}>
-              <Card.Img variant="top" src={Image2} />
-              <Card.Body>
-                <Card.Title className="work-title">SHOPPING</Card.Title>
-              </Card.Body>
-            </Card>
-            <Card className="famous-card" as={Link} to={"/printing"}>
-              <Card.Img variant="top" src={Image1} />
-              <Card.Body>
-                <Card.Title className="work-title">
-                  PRINTING
-                </Card.Title>
-              </Card.Body>
-            </Card>
-            <Card className="famous-card" as={Link} to={"/pdftool"}>
-              <Card.Img variant="top" src={Image3} />
-              <Card.Body>
-                <Card.Title className="work-title">PDF CONVERTER</Card.Title>
-              </Card.Body>
-            </Card>
-          </CardGroup>
+
+
         </div>
       </div>
       <div>

@@ -17,8 +17,8 @@ const FaqData = [
     answer: "You can upload documents in PDF or Word format. In case you have photos in jpg or jpeg format, make a PDF file using scanner apps and then upload in the Print Station app.",
   },
   {
-    question: "What page formats does The Print Station app support?",
-    answer: "At the moment we offer printing in A4 format only.",
+    question:"What formats does The Print Station support?",
+    answer:"At the moment we offer printing in A4 format only.",
   },
   {
     question: "How do I upload my documents?",

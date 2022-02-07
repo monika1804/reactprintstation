@@ -1,12 +1,8 @@
 .footer{
-background: #000428;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-/* margin-top: 10px; */
-padding: 10px;
-text-align: left;
-
-
+ /* fallback for old browsers */
+padding:1%;
+background-color: #000000;
+background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
 .brand{
   display: flex;
@@ -14,28 +10,27 @@ text-align: left;
 }
 .title{
   color: #ffffff;
-   font-family: 'sans-serif';
    margin-left: 10px;
-   font-weight: bold;
+  
 }
 .text{
-   font-family: "Gill Sans", sans-serif;
-    color: #fff;
-    font-weight: bold;
+ color: #fff;
+  
 }
 .social-content{
   display: flex;
   flex-direction: column;
-  grid-gap: 20px;
+  grid-gap: 12px;
   align-items: center;
+
 }
 .icon-content{
   display: flex;
-  grid-gap: 10px;
+ cursor: pointer;
   color: #fff;
-  cursor: pointer;
-  align-items: flex-end;
- 
+   
+  grid-gap: 10px;
+margin-left:-5px
 }
 .terms-content{
   color: #fff;
@@ -43,19 +38,14 @@ text-align: left;
   grid-gap: 15px;
 }
 .service-content{
-  font-family: "Gill Sans", sans-serif;
+  
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 40px;
-  margin-top: 20px;
+ margin:auto;
 }
-.middle-content{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+
 .community{
   display: flex;
   flex-direction: column;

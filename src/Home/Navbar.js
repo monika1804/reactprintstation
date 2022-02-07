@@ -24,7 +24,7 @@ import Notebooks from '../Shopping/notebooks';
 import CustomizeByCover from '../Shopping/customizebycover';
 import CustomizeByName from '../Shopping/customizebyname';
 import TPSMERCHANDISE from '../Shopping/tpsmerchandise';
-import Cart from '../Shopping/cart';
+import Cart from '../cart/cart';
 /*shopping Routes*/
 import Home from './Home';
 import logo from '../images/logo.png';
@@ -52,7 +52,7 @@ export default function NavbarContent() {
               <Nav
                 variant="tabs"
                 className=" my-2 my-lg-0 mx-auto"
-                style={{ maxHeight: '200px', padding: '10px' }}
+                style={{ maxHeight: '200px', padding: '10px'}}
                 navbarScroll
               >
                 <Nav.Item className="px-3">

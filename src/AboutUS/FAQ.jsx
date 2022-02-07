@@ -16,11 +16,11 @@ export default function SimpleAccordion() {
         <div className="row">
           <div className="col-md-4">
             <img
-              className="d-block w-100"
+              className="d-block w-100 faqimage"
               src={Image}
               alt="grey"
-              height="450px"
-              width="300px"
+              height="400px"
+         
             />
           </div>
           <div className="col-md-4">
@@ -29,9 +29,9 @@ export default function SimpleAccordion() {
             </div>
             {FaqData.map((e) => {
               return (
-                <Accordion>
+                <Accordion  style={{'border-radius':'10px',textAlign:'center'}}>
                   <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
+                    expandIcon={<ExpandMoreIcon  style={{'background':'lightgrey','color':'white','border-radius':'100%',fontSize:'18px'}} />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
@@ -48,11 +48,11 @@ export default function SimpleAccordion() {
           </div>
           <div className="col-md-4">
             <img
-              className="d-block w-100"
+              className="d-block w-100 faqimage"
               src={Image2}
               alt="grey"
-              height="450px"
-              width="500px"
+              height="400px"
+            
             />
           </div>
         </div>
