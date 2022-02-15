@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Footer from '../Footer/Footer';
+import {Link} from "react-router-dom"
 function OurCompany() {
     return ( <div>
         <br/>
         <br/>
-        <div style={{'border':'1px solid gray','border-radius':'10px','width':'50%','margin':'auto','padding':'2%','box-shadow':'5px 5px 5px 5px rgba(0,0,0,0.253)'}}>
-        <a href="/profile">< AddBusinessIcon style={{'font-size':'80px'}}/></a>
+        <div class="text-center" style={{'border':'1px solid gray','border-radius':'10px','width':'50%','margin':'auto','padding':'2%','box-shadow':'5px 5px 5px 5px rgba(0,0,0,0.253)'}}>
+        <Link to = "/profile" > profile </Link>
+        <AddBusinessIcon onClick = {()=>{return(<Link to = "/profile" />)}} style={{'font-size':'80px'}}/>
             <h4>Add an address to see available<br/> delivery options</h4>
         </div>
         <br/>
         <br/>
 
 
-        <div style={{'margin':'auto','width':'50%'}}>
+        <div class="text-center" style={{'margin':'auto','width':'50%'}}>
        <span>Units:</span>  <button  style={{'border-radius':'100%'}} type="button" class="btn btn-danger">-</button> &nbsp;
         <input type="number" style={{'text-align':'center','outline':'none'}}/>&nbsp;
         <button  style={{'border-radius':'100%'}} type="button" class="btn btn-success">+</button>
@@ -36,10 +38,10 @@ function OurCompany() {
          </div> 
  
 <br/>
-
+<div class="text-center">
 <a href="/"><button type="button" class="btn btn-light">BACK</button></a>
         <button type="button" class="btn btn-primary">Proceed To Pay</button>
-
+        </div>
         <br/> <br/><br/> <br/><br/> <br/>
 
 

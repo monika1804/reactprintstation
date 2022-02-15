@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 function Users(){
     
 return(
-    <div>
+    <div class="text-center">
 <div class="back-shop-content">
 <h1 style={{'color':'#344850'}}>The <span style={{'color':'#df3b38'}}>Print</span> Station</h1><br/>
 <h3 style={{'color':'#344850'}}>What Would You Like To Purchase Today?</h3>

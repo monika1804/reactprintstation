@@ -5,7 +5,7 @@ import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
 
 export default function FramesandPosters() {
     return (
-     <section class="container-fluid">
+     <section class="container-fluid text-center">
              
     <nav className="sidenav">
        

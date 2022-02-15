@@ -4,7 +4,7 @@ import './shopping.css';
 import { customizebyframeData} from "./customizedframes_data"
 import {BrowserRouter as Router,Switch,Link} from "react-router-dom";
 import { Carousel } from 'react-bootstrap';
-  
+import Footer from '../Footer/Footer'; 
 
 function Planners(){
     let [carousel, setCarousel] = useState( customizebyframeData[0])
@@ -17,7 +17,7 @@ function Planners(){
 
     return( 
         
-<div class="container-fluid">
+<div class="text-center">
 <div class="imgcarousel">
 
      
@@ -57,6 +57,11 @@ function Planners(){
 
 <a href="/menucard"><button type="button" class="btn btn-light">BACK</button></a>
 <button type="button" class="btn btn-primary">Add To Cart</button><br/><br/>
+</div>
+
+<br/><br/><br/><br/>
+<div xs={12} className="footer">
+<Footer />
 </div>
         </div>
     )

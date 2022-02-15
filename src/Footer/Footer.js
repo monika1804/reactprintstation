@@ -47,7 +47,7 @@ export default function Footer() {
                 
                 <h5><a href="/shopping">SHOPPING</a></h5>
                 <h5><a href="/printing">PRINTING</a></h5>
-                <h5><a href="/pdftool">PDF CONVERTER</a></h5>
+                <h5><a href="/home">PDF CONVERTER</a></h5>
               
               </div>
             </div>

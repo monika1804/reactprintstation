@@ -21,19 +21,18 @@ function OurCompany() {
           <div className="col-md-6">
             <div>
               <br/>
-              <h1 className="company-title">Our Company</h1>
-              <br/>
+              <h1 className="display-4"  style={{fontSize:'2.09rem'}}><b><span style={{fontSize:'4.00rem',color:' #a00000'}}>O</span>UR<span style={{fontSize:'4.00rem',color:' #a00000'}}>&nbsp;C</span>OMPANY</b></h1>
+              
               <div>
-                <h5 className="about-content">As an online printing service, we will print, bind and deliver your documents. Simply upload your file(s), configure your document and complete checkout.
-                Find out more about how to use our service in our comprehensive Help Center.
-                Where i Doxzoo aed? Our HQ i in High Wcome, uckinghamhire, UK.
-                We alo have a collection point in Central London, cloe to Oxford Circu and ond treet tation.
-                All staff are UK based, including our production and customer service teams.
-                However for those of you who are further afield, we offer an international delivery service.As an online printing service, we will print, bind and deliver your documents. Simply upload your file(s), configure your document and complete checkout.
-                Find out more about how to use our service in our comprehensive Help Center.
-                Where i Doxzoo aed? Our HQ i in High Wcome, uckinghamhire, UK.
-                We alo have a collection point in Central London, cloe to Oxford Circu and ond treet tation.
-                </h5>
+                <p className="lead about-content">
+                The Print Station is India's first web/App-based Document Printing Store. We are a web/App-based comfort printing store committed to YOU! Our point is to give you admittance to quality items printing without burning through any time or energy. The Print Station app is an exceptional site planned while remembering your day by day printing needs. At The Print Station app, we guarantee to give interesting, reasonable, and simple printing arrangements.
+
+We oblige the printing needs of each and every individual who has a printing current task! You simply transfer your report document, make the installment, and you are arranged! We will convey the prints at your doorstep. The basic and simple to-explore cycle will have your request set surprisingly fast!
+
+We are supporting "docx., doc, ppt, pptx, jpg, png, pdf" designs . We certainly plan to take the entire container soon!!! So how about we drop the exhausting stuff here just and begin printing!! Check us out! ;)
+
+
+                </p>
               </div>
             </div>
           </div>

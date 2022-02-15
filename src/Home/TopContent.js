@@ -8,9 +8,9 @@ import './Home.css';
 
 function TopContent() {
   return (
-    <div>
+    <div class="container py-4">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-sm-6">
           <Carousel variant="dark" style={{'margin-top':'5%','box-shadow':'20px 20px 20px 20px rgba(0,0,0,0.253)'}}>
             <Carousel.Item>
               <img
@@ -36,18 +36,23 @@ function TopContent() {
             </Carousel.Item>
           </Carousel>
         </div>
-        <div className="col-md-6">
+
+
+
+        <div className="col-sm-6">
           <div className="Top-content">
-            <img src={logo} alt="logo" width='250' height="250"/>
+            <img src={logo} alt="logo"style={{'width':'50%','height':'auto'}}/>
             
             <br /><br />
-            <h3 className="header"><strong className="brand-name"><span style={{'color':'snow'}}>The Print Station</span></strong></h3>
+            <h3 className="header"><strong className="brand-name"><span style={{'color':'snow',fontSize:'4vw'}}>The Print Station</span></strong></h3>
             <h5 className="offer"><span style={{'color':'snow'}}>As Unique As You're...</span></h5>
           </div>
         </div>
+
       </div>
     </div>
   )
 }
+
 
 export default TopContent

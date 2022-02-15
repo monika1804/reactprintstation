@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 
 export default function Home() {
   return (
-    <>
+    <div class="text-center">
       <div className="home-content">
         <div xs={12} >
           <TopContent />
@@ -19,10 +19,11 @@ export default function Home() {
       <div xs={12} className="video-content">
         <VideoContent />
       </div>
+      <br/><br/> 
       <div xs={12} className="footer">
         <Footer />
       </div>
 
-    </>
+    </div>
   )
 }

@@ -9,20 +9,20 @@ import Footer from '../Footer/Footer';
 
 export default function About() {
   return (
-    <div>
+    <div class="text-center">
      <Card className="text-white">
 
-<Card.Img src={Image} alt="Card image" className="about-bg" />
+<Card.Img src="images/aboutus.jpg"alt="Card image" className="about-bg" />
 <Card.ImgOverlay className="title-content">
-  <Card.Title className="about-title">ABOUT US</Card.Title>
+
 </Card.ImgOverlay>
 </Card>
-<div className="company-content">
+<div className="company-content p-4">
         <OurCompany />
       </div>
-
+<hr></hr>
      
-      <div className="faq-content">
+      <div className="faq-content p-2 ">
         <FAQ />
       </div>
 <br/><br/>

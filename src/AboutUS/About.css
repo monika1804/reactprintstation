@@ -1,6 +1,7 @@
 .about-bg{
-  
-	height:100vh;
+  width:100%;
+height:auto;
+box-shadow:10px 5px 10px 5px lightgray;
 }
 
 .about-title{
@@ -19,13 +20,11 @@
 
 }
 .about-content{
-  text-align: left;
-  margin-left: 30px;
-  margin-right: 30px;
+font-size:1.00rem;
 }
 .company-title{
-  font-weight: bold;
-  font-size: 45px;
+ font-weight:500;
+  font-size:3.0rem;
 }
 .choose-bg{
   padding:1%;
@@ -55,8 +54,10 @@
   color: #fff;
 }
 .image-content{
-  margin:30px;
-
+  width:70%;
+  margin:auto;
+  height:auto;
+  box-shadow:10px 5px 10px 5px lightgray;
 
 }
 .faq-content{
@@ -70,5 +71,5 @@ padding:1%;
 }
 
 .faqimage{
-  margin-top:120px;
+  margin-top:80px;
 }
