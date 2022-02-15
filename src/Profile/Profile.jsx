@@ -1,26 +1,48 @@
 import { Divider, TextField } from '@mui/material';
-import React, { useState } from 'react'
-import { Form, Row, Col, Button, Card } from 'react-bootstrap';
-import './../Login/Login.css';
+import React, { useEffect, useState } from 'react'
+import { Form, Row, Col, Button, Card, Toast } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
+import { useAuth } from '../context/context';
+import CustomToast from '../utils/Toast';
+import "./profile.css"
 
-function SignUpForm({
-  handleLoginClick }) {
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [pincode, setPincode] = useState("");
+export default function Profile() {
+  let { userProfile, addDataToDb, firebaseAuth } = useAuth()
+  const [firstName, setFirstName] = useState(userProfile.firstName); //Next dev, this will always show display name even if we update first name XD
+  const [lastName, setLastName] = useState(userProfile.lastName)
+  const [email, setEmail] = useState(userProfile.email) //Same Here; fix this ;_;
+  const [phone, setPhone] = useState(userProfile.phone);
+  const [address, setAddress] = useState(userProfile.address);
+  const [city, setCity] = useState(userProfile.city);
+  const [state, setState] = useState(userProfile.state);
+  const [pincode, setPincode] = useState(userProfile.pincode);
   const [formError, setFormError] = useState([]);
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    severity: "success"
+  })
+  
+  useEffect(()=>{
+    setFirstName(userProfile.firstName)
+    setEmail(userProfile.email)
+    setLastName(userProfile.lastName)
+    setPhone(userProfile.phone)
+    setAddress(userProfile.address)
+    setCity(userProfile.city)
+    setState(userProfile.state)
+    setPincode(userProfile.pincode)
+  }, [userProfile])
 
-  const handleSignUpClick = (e) => {
+  if(!firebaseAuth.currentUser){
+    console.log("user not in")
+    return(<Redirect to = "/" />)
+  }
+  
+  const handleSignUpClick = async (e) => {
     e.preventDefault()
     const errors = [];
-    if (name === "") {
+    if (firstName === "") {
       errors.push("name");
     }
     if (email === "") {
@@ -28,14 +50,6 @@ function SignUpForm({
     }
     if (phone === "") {
         errors.push("phone")
-      }
-      if (password === "") {
-        errors.push("password");
-      }
-      if (confirmPassword === "") {
-        errors.push("confirmPassword");
-      } else if (confirmPassword !== password) {
-        errors.push("passwordUnmatch");
       }
     if (address === "") {
       errors.push("address");
@@ -50,11 +64,38 @@ function SignUpForm({
       errors.push("pincode");
     }
     setFormError(errors);
-
+    if(formError.length === 0) {
+      console.log("we in here", userProfile)
+      let userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        address: address,
+        state: state,
+        city: city,
+        pincode: pincode
+      }
+      try{
+        await addDataToDb("userMetadata", userData)
+        setToast({
+          show: true,
+          message: "profile sucessfully updated",
+          severity: "success"
+        })
+      }
+      catch (e) {
+        setToast({
+          show: true,
+          message: "could not update profile" + e.message,
+          severity: "error"
+        })
+      }
+    }
   }
   return (
     <div>
-      <Card className="login-card" style={{'margin':'auto','width':'50%','margin-top':'50px'}}>
+      <Card className="login-card" style={{'margin':'auto','width':'50%',marginTop:'50px'}}>
         <Form onSubmit = {e => handleSignUpClick(e)}>
           <h3><b>Profile Page</b></h3>
           <Divider />
@@ -64,8 +105,8 @@ function SignUpForm({
                 <TextField placeholder="Enter the First Name"
                   fullWidth
                   size="small"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   error={formError.includes("name")}
                   helperText={
                     formError.includes("name") ? "First Name is Required" : ""
@@ -76,6 +117,8 @@ function SignUpForm({
                 <TextField placeholder="Enter the Last Name"
                   fullWidth
                   size="small"
+                  value = {lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </Form.Group>
             </Row>
@@ -92,44 +135,7 @@ function SignUpForm({
                 }
               />
             </Form.Group>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridPassword">
-                <TextField placeholder="Enter Password "
-                  fullWidth
-                  size="small"
-                  value={password}
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  error={formError.includes("password")}
-                  helperText={
-                    formError.includes("password")
-                      ? "Fill the required field"
-                      : ""
-                  }
-                />
-              </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <TextField placeholder="Enter Confirm Password"
-                  fullWidth
-                  size="small"
-                  value={confirmPassword}
-                  type="password"
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  error={
-                    formError.includes("confirmPassword") ||
-                    formError.includes("passwordUnmatch")
-                  }
-                  helperText={
-                    formError.includes("confirmPassword")
-                      ? "Fill the required field"
-                      : formError.includes("passwordUnmatch")
-                        ? " Passwords do not Match "
-                        : ""
-                  }
-                />
-              </Form.Group>
-            </Row>
             <Form.Group className="mb-3" controlId="formGridAddress1">
               <TextField type="tel" placeholder="Enter Phone Address"
                 fullWidth
@@ -198,18 +204,21 @@ function SignUpForm({
                 />
               </Form.Group>
             </Row>
-
-          
-
-            <Button variant="primary" type = "submit">
-              Save
-            </Button>
+            <Row>
+              <Button variant="primary" type = "submit">
+                Save
+              </Button>
+            </Row>
           </div>
         </Form>
 
       </Card>
+      <CustomToast
+          open = {toast.show}
+          handleClose = {e => () => setToast({...toast, show: false})} //wow how did i do this lmao XD
+          message = {toast.message}
+          severity= {toast.severity}
+        />
     </div>
   )
 }
-
-export default SignUpForm

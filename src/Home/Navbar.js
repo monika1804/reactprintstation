@@ -1,11 +1,13 @@
-
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
+import Box from '@mui/material/Box';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory,
+  Redirect
 } from "react-router-dom";
 import About from '../AboutUS/About';
 import PdfTools from '../PDFTools/PdfTools';
@@ -33,15 +35,33 @@ import TrackOrder from '../TrackOrder/TrackOrder';
 import './Home.css';
 import Login from '../Login/Login';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-export default function NavbarContent() {
-  const [open, setOpen] = useState(false);
+import Profile from "../Profile/Profile"
+import { useAuth } from '../context/context';
 
-  const handleLoginClick = () => {
-    setOpen(true)
+export default function NavbarContent() {
+  const { currentUser, firebaseLogout, firebaseAuth, cartData } = useAuth()
+  const [open, setOpen] = useState(false);
+  const [logOut, setLogOut] = useState(false)
+  useEffect(()=>{
+    if(firebaseAuth.currentUser){
+      setLogOut(true)
+      setOpen(false)
+    }else{
+      setLogOut(false)
+    }
+  },[firebaseAuth.currentUser])
+
+  const changeModalState = () => {
+    if(logOut){
+      firebaseLogout()
+    }
+    else {
+      setOpen(!open)
+    }
   }
   return (
     <Router>
-      <div>
+      <div class="text-center">
         <Navbar expand="lg" variant="dark" className="navbar" >
           <Container fluid>
             <Navbar.Brand as={Link} to={"/home"} className="logo">
@@ -58,32 +78,41 @@ export default function NavbarContent() {
                 <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
                 </Nav.Item>
+             
+              
+                <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
+                </Nav.Item>
+
+                {firebaseAuth.currentUser ?
+                <>
                 <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/printing"}>Printing</Nav.Link>
                 </Nav.Item>
-                <Nav.Item className="px-3">
+                   <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/shopping"}>Shopping</Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="px-3">
-                  <Nav.Link as={Link} to={"/pdftool"}>PDF Tools</Nav.Link>
+                  <Nav.Link as={Link} to={"/profile"}>Profile</Nav.Link>
                 </Nav.Item>
-                <Nav.Item className="px-3">
-                  <Nav.Link as={Link} to={"/about"}>About Us</Nav.Link>
-                </Nav.Item>
+                </>: ""}
+
+                
                 <Nav.Item className="px-3">
                   <Nav.Link as={Link} to={"/track"}>Track Order</Nav.Link>
                 </Nav.Item>
+               
               </Nav>
          
               <div>
-              <a href="/cart"><ShoppingCartIcon style={{'font-size':'40px','color':'white','margin-right':'30px'}}/></a>
-                <Button variant="outline-light" onClick={handleLoginClick}>Login</Button>
-                {open ?
-                  <Login
-                    setOpen={setOpen}
-                    open={open}
-                  />
-                  : " "}
+             <a href="/cart"><ShoppingCartIcon style={{fontSize:'3.00rem',color:'white',marginRight:'20px'}}/></a> 
+                <Button variant="outline-light" onClick={e => changeModalState()}>{logOut? "Logout": "Login"}</Button>
+                <Login
+                  changeModalState={changeModalState}
+                  open={open}
+                />
+                <Box sx = {{color:"red"}}>welcome, {currentUser}</Box>
+                
               </div>
             </Navbar.Collapse>
           </Container>
@@ -153,6 +182,9 @@ export default function NavbarContent() {
           <Route path="/track">
             <TrackOrder />
           </Route>
+          <Route path = "/profile">
+            <Profile />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -161,3 +193,6 @@ export default function NavbarContent() {
     </Router>
   )
 }
+/*  <Nav.Item className="px-3">
+                  <Nav.Link as={Link} to={"/pdftool"}>PDF Tools</Nav.Link>
+                </Nav.Item>*/

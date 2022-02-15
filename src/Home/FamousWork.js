@@ -16,48 +16,48 @@ import {
 export default function FamousWork() {
   return (
     <Router>
-      <div className="container">
+      <div className="container text-center">
         <div className="work-content">
        
-            <h1 className="famous-title">FAMOUS WORK</h1>
+            <h1 className="display-4 famous-title" style={{fontSize:'2.09rem'}}><b><span style={{fontSize:'4.00rem',color:' #a00000'}}>F</span>AMOUS<span style={{fontSize:'4.00rem',color:' #a00000'}}>  W</span>ORK</b></h1>
       
       
           <br/>
           <div>
           <CardGroup >
-          <Card style={{ width: '14rem','margin':'15px','padding':'2%' ,'background-color': '#ffffff',
+          <Card style={{ width: '14rem','margin':'20px','padding':'2%' ,'background-color': '#ffffff',
               'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
             <Card.Link href="/shopping">
          <Card.Img variant="top" src={Image2} />
           <Card.Body>
           <Card.Title>
-            <h2>SHOPPING</h2>
+            <h2 className="display-4" style={{fontSize:'2.00rem'}}><b>SHOPPING</b></h2>
           </Card.Title>
 
           </Card.Body>
           </Card.Link>
           </Card>
-
-          <Card style={{ width: '14rem','margin':'15px','padding':'2%','background-color': '#ffffff',
+          <br/>
+          <Card style={{ width: '14rem','margin':'20px','padding':'2%','background-color': '#ffffff',
               'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
             <Card.Link href="/printing">
          <Card.Img variant="top" src={Image1} />
           <Card.Body>
           <Card.Title>
-          <h2>PRINTING</h2>
+          <h2 className="display-4" style={{fontSize:'2.00rem'}}><b>PRINTING</b></h2>
           </Card.Title>
           </Card.Body>
           </Card.Link>
           </Card>
+<br/>
 
-
-          <Card style={{ width: '14rem','margin':'15px' ,'padding':'2%' ,'background-color': '#ffffff',
+          <Card style={{ width: '14rem','margin':'20px' ,'padding':'2%' ,'background-color': '#ffffff',
               'background-image': 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)' }}>
-            <Card.Link href="/pdftool">
+            <Card.Link href="/home">
          <Card.Img variant="top" src={Image3} />
           <Card.Body>
           <Card.Title>
-          <h2>PDF TOOL</h2>
+          <h2 className="display-4" style={{fontSize:'2.00rem'}}><b>PDF TOOL</b></h2>
           </Card.Title>
       
           </Card.Body>
@@ -65,22 +65,8 @@ export default function FamousWork() {
           </Card>
           </CardGroup >
           </div>
-
-
+         
         </div>
-      </div>
-      <div>
-        <Switch>
-          <Route path="/printing">
-            <Printing />
-          </Route>
-          <Route path="/shopping">
-            <Shopping />
-          </Route>
-          <Route path="/pdftool">
-            <PdfTools />
-          </Route>
-        </Switch>
       </div>
     </Router>
   )

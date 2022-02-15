@@ -1,14 +1,17 @@
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Home/Navbar';
-import MainProfile from './Profile/MainProfile';
+import AuthProvider from './context/context';
+import { BrowserRouter } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+      <BrowserRouter>
+        <AuthProvider>
+          <Navbar />
+        </AuthProvider>
+      </BrowserRouter>
   );
 }
 
